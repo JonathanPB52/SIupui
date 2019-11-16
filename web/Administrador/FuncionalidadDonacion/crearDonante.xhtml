@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="../../icomoon/style.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/scroll.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/select.css"></link>
+        <link rel="stylesheet" href="../../Estilos/AnimacionesCss/animate.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.min.css"></link>
+    </h:head>
+    <h:body>
+        <f:view>
+            <p:growl autoUpdate="true" />
+            <div class="section container" >
+                <div class="row">
+
+                    <h:form class="col s12">
+                        <div class="row card-panel">
+                            <div class="col s12">
+                                <div class="row card-panel">
+                                    <h3>Registro de donante</h3>
+                                </div>
+                            </div>
+                            <div class="col s12">
+                                <div class="row card-panel">
+                                    <div class="col s6">
+                                        <p:outputLabel value="Nombre:" />
+                                        <p:inputText placeholder="Primer nombre" a:maxlength="11" id="nombre" value="#{DonanteControlador.donante.nombre}" title="Nombre" required="true" requiredMessage="El nombre es obligatorio."/>
+
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="Segundo nombre:"  />
+                                        <p:inputText placeholder="Seungundo nombre" a:maxlength="11" id="segundoNombre" value="#{DonanteControlador.donante.segundoNombre}" title="SegundoNombre" />
+
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="Apellido:" />
+                                        <p:inputText placeholder="Primer apellido" a:maxlength="11" id="apellido" value="#{DonanteControlador.donante.apellido}" title="Apellido" required="true" requiredMessage="El primer apellido es requerido."/>
+
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="Segundo apellido:" />
+                                        <p:inputText placeholder="Segundo apellido" a:maxlength="11" id="segundoApellido" value="#{DonanteControlador.donante.segundoApellido}" title="SegundoApellido" required="true" requiredMessage="El segundo apellido es reuqerido."/>
+
+
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="Numero de telefono:" />
+                                        <p:inputText placeholder="Numero de telefono" type="number" id="telefono" value="#{DonanteControlador.donante.telefono}" title="Telefono" required="true" requiredMessage="El telefono es requerido."/>
+
+                                    </div>
+                                    <div class="col s12">
+                                        <p:outputLabel value="Tipo de telefono:"  />
+                                        <p:selectOneMenu style="width: 100%" styleClass="select" id="tipoTelefono" value="#{DonanteControlador.tipoTelefono.id}" required="false" requiredMessage="The TipoTelefono field is required.">
+                                            <!-- TODO: update below reference to list of available items-->
+                                            <f:selectItems value="#{TipoTelefonoControlador.ConsultarTodos()}" var="ttel" itemValue="#{ttel.id}" itemLabel="#{ttel.tipoDeTelefono}" />
+                                        </p:selectOneMenu>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col s12">
+                                <div class="row card-panel">
+                                    <p:commandButton class="btn" action="#{DonanteControlador.Registrar()}" value="Registrar" >
+                                        <p:confirm  header="Confirmacion" message="Estas seguro que deceas registrar estos datos?" icon="ui-icon-alert" />
+                                    </p:commandButton>
+                                </div>
+                            </div>
+                            <p:confirmDialog style="background: white;" global="true" showEffect="fade">
+                                <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes btn" icon="ui-icon-check"/>
+                                <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no btn" icon="ui-icon-close"/>
+                            </p:confirmDialog>
+                        </div>
+                    </h:form>
+                    <div class="fixed-action-btn">
+                        <a href="indexDonaciones.xhtml" title="Seleccionar otro comedor" class="btn-floating btn-large icon-undo2"></a>
+                    </div>
+                </div>
+            </div>
+        </f:view>
+        <script src="../../Estilos/materialize/js/materialize.js" ></script>
+        <script src="../../Estilos/materialize/js/materialize.min.js" ></script>
+    </h:body>
+</html>
+

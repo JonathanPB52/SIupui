@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="../../Estilos/css/scroll.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/alertas.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/donanteForm.css"></link>
+    </h:head>
+    <h:body style="background-image: url(../../Estilos/img/FondoMenu.jpg)">
+        <f:view>
+            <p:growl autoUpdate="true" />
+
+            <h:form>
+
+                <p:fieldset legend="Datos de donante ID: #{DonanteControlador.donante.id}" style="background: rgba(0,0,0,0.3); border: none">
+
+                    <p:fieldset legend="Informacion personal" style="background: #7CB89D">
+                        <h:panelGrid columns="2" style="background: #7CB89D">
+                            <p:outputLabel value="Nombre:" />
+                            <p:inputText placeholder="Primer nombre" a:maxlength="11" id="nombre" value="#{DonanteControlador.donante.nombre}" title="Nombre" required="true" requiredMessage="El nombre es obligatorio."/>
+                            <p:outputLabel value="SegundoNombre:"  />
+                            <p:inputText placeholder="Seungundo nombre" a:maxlength="11" id="segundoNombre" value="#{DonanteControlador.donante.segundoNombre}" title="SegundoNombre" />
+                            <p:outputLabel value="Apellido:" />
+                            <p:inputText placeholder="Primer apellido" a:maxlength="11" id="apellido" value="#{DonanteControlador.donante.apellido}" title="Apellido" required="true" requiredMessage="El primer apellido es requerido."/>
+
+                        </h:panelGrid>
+                    </p:fieldset>
+
+                    <p:fieldset legend="Informacion personal" style="background: #7CB89D">
+                        <h:panelGrid columns="2" style="background: #7CB89D">
+
+                            <p:outputLabel value="SegundoApellido:" />
+                            <p:inputText placeholder="Segundo apellido" a:maxlength="11" id="segundoApellido" value="#{DonanteControlador.donante.segundoApellido}" title="SegundoApellido" required="true" requiredMessage="El segundo apellido es reuqerido."/>
+                            <p:outputLabel value="TipoTelefono:"  />
+                            <p:selectOneMenu id="tipoTelefono" value="#{DonanteControlador.tipoTelefono.id}" required="false" requiredMessage="The TipoTelefono field is required.">
+                                <!-- TODO: update below reference to list of available items-->
+                                <f:selectItems value="#{TipoTelefonoControlador.ConsultarTodos()}" var="ttel" itemValue="#{ttel.id}" itemLabel="#{ttel.tipoDeTelefono}" />
+                            </p:selectOneMenu>
+                            <p:outputLabel value="Telefono:" />
+                            <p:inputText placeholder="Numero de telefono" type="number" id="telefono" value="#{DonanteControlador.donante.telefono}" title="Telefono" required="true" requiredMessage="El telefono es requerido."/>
+
+
+                        </h:panelGrid>
+                    </p:fieldset>
+
+                    <br/>
+                    <br/>
+
+                    <p:commandButton action="#{DonanteControlador.Actualizar()}" value="Actualizar" >
+                        <p:confirm  header="Confirmacion" message="Estas seguro que deceas actualizar estos datos?" icon="ui-icon-alert" />
+                    </p:commandButton>
+
+                    <p:commandButton action="listarYeditarDonante" value="Volver" >
+                        <p:confirm  header="Confirmacion" message="Estas seguro que deceas salir sin actualizar ningun dato?" icon="ui-icon-alert" />
+                    </p:commandButton>
+                </p:fieldset>
+
+
+
+                <p:confirmDialog global="true" showEffect="fade">
+                    <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+                    <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
+                </p:confirmDialog>
+
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
+

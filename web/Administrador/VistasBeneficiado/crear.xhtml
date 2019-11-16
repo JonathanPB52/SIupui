@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="../../icomoon/style.css"></link>
+        <link rel="stylesheet" href="../../Estilos/AnimacionesCss/animate.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.min.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/scroll.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/select.css"></link>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"></link>
+    </h:head>
+    <h:body>
+
+        <f:view>
+            <p:growl autoUpdate="true" />
+            <div class="section container" >
+                <div class="row">
+
+                    <h:form class="col s12">
+                        <div class="row card-panel">
+                            <div class="col s12">
+                                <h2>Informacion comedor</h2>
+                            </div>
+                            <div class="col s6">
+                                <p:outputLabel value="ID comedor:"/>
+                            </div>
+                            <div class="col s6">
+                                <p:outputLabel value="#{BeneficiadoControlador.comedor.id}" ></p:outputLabel>
+                            </div>
+                            <div class="col s6">
+                                <p:outputLabel value="Capaciad de comedor:"/>
+                            </div>
+                            <div class="col s6">
+                                <p:outputLabel value="#{BeneficiadoControlador.comedor.capacidad}" ></p:outputLabel>
+                            </div>
+                            <div class="col s6">
+                                <p:outputLabel value="Localidad comedor:"/>
+                            </div>
+                            <div class="col s6">
+                                <p:outputLabel value="#{BeneficiadoControlador.comedor.localidad.nombreLocalidad}" ></p:outputLabel>
+                            </div>
+                        </div>
+                    </h:form>
+
+                    <h:form class="col s12">
+                        <div class="row card-panel">
+                            <div class="col s12">
+                                <br/>
+                                <p:outputLabel value="Tipo de telefono:"/>
+                                <br/>
+                                <p:selectOneMenu style="width: 100%" styleClass="select" id="tipoTelefono" value="#{BeneficiadoControlador.tipoTelefono.id}"  required="true" requiredMessage="Numero de telefono requerido">
+                                    <!-- TODO: update below reference to list of available items-->
+                                    <f:selectItems value="#{TipoTelefonoControlador.ConsultarTodos()}" var="tel" itemValue="#{tel.id}" itemLabel="#{tel.tipoDeTelefono}" />
+                                </p:selectOneMenu>
+                            </div>
+                            <div class="col s12">
+                                <br/>
+                                <p:outputLabel value="Tipo de documento:"/>
+                                <br/>
+                                <p:selectOneMenu style="width: 100%" styleClass="select" id="tipoDocumento" value="#{BeneficiadoControlador.tipoDocumento.id}" required="false" requiredMessage="The TipoDocumento field is required.">
+                                    <!-- TODO: update below reference to list of available items-->
+                                    <f:selectItem itemValue="1" itemLabel="Cedula de ciudadania" />
+                                </p:selectOneMenu>
+                            </div>
+                            <div class="col s6">
+                                <p:outputLabel value="Nombre:"/>
+                                <p:inputText placeholder="Primer nombre" id="nombre" value="#{BeneficiadoControlador.beneficiado.nombre}" title="Nombre" required="true" requiredMessage="El primer nombre es obligatorio"/>
+
+                            </div>
+                            <div class="col s6">
+                                <p:outputLabel value="Segundo nombre:"/>
+                                <p:inputText placeholder="Segundo nombre" id="segundoNombre" value="#{BeneficiadoControlador.beneficiado.segundoNombre}" title="SegundoNombre" />
+
+                            </div>
+                            <div class="col s6">
+                                <p:outputLabel value="Apellido:"/>
+                                <p:inputText placeholder="Primer apellido" id="apellido" value="#{BeneficiadoControlador.beneficiado.apellido}" title="Apellido" required="true" requiredMessage="Primer apellido requerido"/>
+
+                            </div>
+                            <div class="col s6">
+                                <p:outputLabel value="Segundo apellido:"/>
+                                <p:inputText placeholder="Segundo apellido" id="segundoApellido" value="#{BeneficiadoControlador.beneficiado.segundoApellido}" title="SegundoApellido" required="true" requiredMessage="Segundo apellido requerido"/>
+
+                            </div>
+                            <div class="col s6">
+                                <p:outputLabel value="Dirección:"/>
+                                <p:inputText placeholder="Direccion" id="direccion" value="#{BeneficiadoControlador.beneficiado.direccion}" title="Direccion" required="true" requiredMessage="Direccion requerida"/>
+
+                            </div>
+                            <div class="col s6">
+                                <p:outputLabel value="Telefono:"/>
+                                <p:inputText placeholder="Numero de telefono" type="number" id="telefono" value="#{BeneficiadoControlador.beneficiado.telefono}" title="Telefono" required="true" requiredMessage="Numero de telefono requerido"/>
+
+                            </div>
+                            <div class="col s6">
+                                <p:outputLabel value="Documento:"/>
+                                <p:inputText placeholder="Numero de documento"  type="number" id="documento" value="#{BeneficiadoControlador.beneficiado.documento}" title="Documento" required="true" requiredMessage="Numero de documento"/>
+
+                            </div>
+                            <div class="col s12">
+                                <br/>
+                                <br/>
+                                <p:commandButton  class="btn" action="#{BeneficiadoControlador.Registrar()}" value="Registrar">
+                                    <p:confirm header="Confirmacion" message="Estas seguro que deseas Registrar estos datos?" icon="ui-icon-alert" />
+                                </p:commandButton>
+                            </div>
+                            <p:confirmDialog class="animated flipInX" style="background: white" global="true" showEffect="fade">
+                                <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes btn" icon="ui-icon-check"/>
+                                <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no btn" icon="ui-icon-close"/>
+                            </p:confirmDialog>
+                        </div>
+                    </h:form>
+
+                    <h:form class="col s12">
+                        <div class="row card-panel">
+                            <div class="col s12">
+                                <p:commandButton class="btn" action="vistaComedores.xhtml" value="Volver">
+                                    <p:confirm header="Confirmacion" message="Estas seguro que deceas volver?" icon="ui-icon-alert" />
+                                </p:commandButton>
+                            </div>
+                        </div>
+                    </h:form>
+                    <div class="fixed-action-btn">
+                        <a href="vistaComedores.xhtml" title="Seleccionar otro comedor" class="btn-floating btn-large icon-undo2"></a>
+                    </div>
+                </div>
+            </div>
+        </f:view>
+        <script src="../../Estilos/materialize/js/materialize.js" ></script>
+        <script src="../../Estilos/materialize/js/materialize.min.js" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </h:body>
+</html>
+

@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="../../icomoon/style.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/scroll.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/select.css"></link>
+        <link rel="stylesheet" href="../../Estilos/AnimacionesCss/animate.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.min.css"></link>
+    </h:head>
+    <h:body>
+        <f:view>
+
+            <p:growl autoUpdate="true" showDetail="false" />
+            <div class="section container" >
+                <div class="row">
+                    <h:form class="col s12" enctype="multipart/form-data">
+                        <div class="row card-panel">
+                            <div class="col s12">
+                                <div class="row card-panel">
+                                    <h3>Registro de novedad</h3>
+                                </div>
+                            </div>
+                            <div class="col s12">
+                                <div class="row card-panel">
+                                    <div class="col s6">
+                                        <p:outputLabel style="color: black" value="Fecha de novedad:" />
+                                        <p:inputText disabled="true" value="#{NovedadControlador.novedad.fechaDeNovedad}" >
+                                            <f:convertDateTime pattern="dd-MM-yyyy" />
+                                        </p:inputText>
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel style="color: black" value="Localidad de comedor:" />
+                                        <p:inputText disabled="true" value="#{NovedadControlador.novedad.idcomedor.localidad.nombreLocalidad}" />
+                                    </div>
+                                    <div class="col s12">
+                                        <p:outputLabel style="color: black" value="Descripcion de novedad:" />
+                                        <p:inputText disabled="true" value="#{NovedadControlador.novedad.descripcion}" />
+                                    </div>
+                                    <div class="col s12">
+                                        <p:outputLabel style="color: black" value="Evidencia de la novedad:" />
+                                        <br/>
+                                        <br/>
+                                        <iframe width="100%" height="250px" src="#{NovedadControlador.novedad.evidenciaNovedad}" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </h:form>
+                    <div class="fixed-action-btn">
+                        <a href="listarYeditar.xhtml" title="Volver" class="btn-floating btn-large icon-undo2"></a>
+                    </div>
+                </div>
+            </div>
+        </f:view>
+        <script src="../../Estilos/materialize/js/materialize.js" ></script>
+        <script src="../../Estilos/materialize/js/materialize.min.js" ></script>
+    </h:body>
+</html>
+

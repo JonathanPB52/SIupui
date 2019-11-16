@@ -1,0 +1,36 @@
+table{
+    width: 100%;
+}
+tr{
+    width: 100%;
+}
+td{
+    width: 50%;
+    
+}
+label.ui-outputlabel.ui-widget{
+    font-family: cursive;
+}
+input.ui-inputfield.ui-inputtext.ui-widget.ui-state-default.ui-corner-all{
+    width: 90%;
+    font-family: cursive;
+}
+div.ui-dialog-titlebar.ui-widget-header.ui-helper-clearfix.ui-corner-top{
+    background: #7CB89D;
+    font-family: cursive;
+    text-align: center;
+}
+
+div.ui-dialog-content.ui-widget-content{
+    background: rgba(0,0,0,0.8);
+    font-family: cursive;
+    color: white;
+}
+
+div.ui-dialog-buttonpane.ui-dialog-footer.ui-widget-content.ui-helper-clearfix{
+    background: #7CB89D;
+    text-align: center;
+    font-family: cursive;
+    margin-top: 0%;
+}
+

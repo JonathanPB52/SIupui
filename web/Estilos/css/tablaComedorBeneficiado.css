@@ -1,0 +1,10 @@
+tr.ui-widget-content.ui-datatable-even{
+    background:#448649;
+}
+tr.ui-widget-content.ui-datatable-odd{
+    background: rgba(0,0,0,0.1);
+}
+td{
+    padding: 0;
+}
+

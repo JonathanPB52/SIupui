@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="043b5eac-e8cc-43fd-bcdf-dd39f3e06750">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     comedores.`Id` AS comedores_Id,
+     comedores.`capacidad` AS comedores_capacidad,
+     localidad.`nombreLocalidad` AS localidad_nombreLocalidad,
+     comedores.`encargado` AS comedores_encargado,
+     usuarios.`nombre` AS usuarios_nombre,
+     usuarios.`documento` AS usuarios_documento
+FROM
+     `localidad` localidad INNER JOIN `comedores` comedores ON localidad.`id` = comedores.`localidad`
+     INNER JOIN `usuarios` usuarios ON comedores.`encargado` = usuarios.`Id`]]>
+	</queryString>
+	<field name="comedores_Id" class="java.lang.Integer"/>
+	<field name="comedores_capacidad" class="java.lang.String"/>
+	<field name="localidad_nombreLocalidad" class="java.lang.String"/>
+	<field name="comedores_encargado" class="java.lang.Integer"/>
+	<field name="usuarios_nombre" class="java.lang.String"/>
+	<field name="usuarios_documento" class="java.lang.String"/>
+	<background>
+		<band height="802" splitType="Stretch">
+			<image>
+				<reportElement x="454" y="69" width="152" height="103" uuid="249e1b7b-f4f5-4b55-85ad-f858bff0c3a6"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="22" y="59" width="152" height="103" forecolor="#FFFFFF" uuid="f9bb3ab0-43e5-4e30-9a25-1eb5f6ce4bf6"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="10" y="520" width="152" height="103" uuid="54222e4b-08fb-4513-9a83-bcc237f5d640"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="438" y="520" width="152" height="103" uuid="26622145-8637-4bce-bdbb-c93f18edcee3"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image isUsingCache="true">
+				<reportElement x="162" y="10" width="152" height="103" uuid="c0af2482-d29d-4e23-9978-166f2e50e384"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="454" y="293" width="152" height="103" uuid="89727003-ce91-48c3-b58c-02d0f40bb760"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="328" y="10" width="152" height="103" uuid="e0cd0b81-eac1-4e5f-83b7-47cb17a5dac9"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="10" y="293" width="152" height="103" uuid="6a180f60-ece9-4050-b990-602bb3cfc550"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="223" y="670" width="152" height="103" uuid="36a1cfd3-edec-4961-9fb2-eae4693908ce"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="131" y="0" width="152" height="79" uuid="4e40d033-21ab-49b7-88c0-3129d983ee49"/>
+				<textElement>
+					<font size="58" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UPUI]]></text>
+			</staticText>
+			<image>
+				<reportElement x="404" y="0" width="148" height="79" uuid="9c3512c9-ebd2-4782-a6db-5df2326a7cec"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\iconoSystema\\logoSistema.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="13" y="13" width="210" height="34" uuid="fda43cb6-b13e-4333-9143-b75554da39bc"/>
+				<textElement>
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Comedores:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="43" height="20" uuid="a7fd0bb1-174a-46d4-8539-e9316128271e"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="76" y="0" width="92" height="20" uuid="e1f372f0-2878-42de-b5a4-651f8716affd"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Capacidad de comedor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="199" y="0" width="92" height="20" uuid="76208704-faf6-4259-b215-f7168832a5ec"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Localidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="316" y="0" width="92" height="20" uuid="19d4eea4-abbd-400a-9db1-1aa6123b9b14"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Nombre de encragado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="0" width="92" height="20" uuid="95b3bdc4-1fdd-4181-a106-2aeb24447aae"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Documento]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="36" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="43" height="20" uuid="65c47a74-70ac-4dcf-8e94-df1be9acd361"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{comedores_Id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="76" y="0" width="92" height="20" uuid="fa03c646-7557-4f02-a486-694add5d05f0"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{comedores_capacidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="199" y="0" width="92" height="20" uuid="3bd3b961-6732-4f14-a91c-6db74160ffc7"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{localidad_nombreLocalidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="316" y="0" width="92" height="20" uuid="0c1260ce-841f-4be6-b2a4-ff122ea573ad"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{usuarios_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="460" y="0" width="92" height="20" uuid="c49e0718-68b7-44c2-9bb7-4c5c622db9ec"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{usuarios_documento}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="452" y="34" width="100" height="20" uuid="34f0ef29-6e1a-4b71-ad25-ddb934ba05c1"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

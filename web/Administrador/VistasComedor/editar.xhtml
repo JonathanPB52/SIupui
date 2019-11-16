@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="../../icomoon/style.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/scroll.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/alertas.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/comedorForm.css"></link>
+    </h:head>
+    <h:body style="background-image: url(../../Estilos/img/FondoMenu.jpg)">
+
+        <f:view>
+
+            
+            <p:growl autoUpdate="true" />
+            
+        <h:form>
+
+            <p:fieldset legend="Registro comedor ID: #{ComedorControlador.comedor.id}" style="background: rgba(0,0,0,0.3); border: none">
+
+                <p:fieldset legend="Nombres y apellidos" style="background: #7CB89D">
+                    <h:panelGrid columns="2" style="background: #7CB89D">
+                        
+                    <p:outputLabel value="Capacidad en puestos:" />
+                    <p:inputText placeholder="Capacidad de comedor" type="number" id="capacidad" value="#{ComedorControlador.comedor.capacidad}" title="Capacidad" required="true" requiredMessage="Debes de ingresar la capacidad del comedor"/>
+                    
+                    <p:outputLabel value="Localidad:" />
+                    <p:selectOneMenu id="localidad" value="#{ComedorControlador.localidad.id}" required="false" requiredMessage="The Localidad field is required." filter="true" filterMatchMode="">
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{LocalidadControlador.ConsultarTodos()}" var="loc" itemValue="#{loc.id}" itemLabel="#{loc.nombreLocalidad}" />
+                    </p:selectOneMenu>
+                    
+                    
+                    <p:outputLabel value="Encargado de comedor:" for="encargado" />
+                    <p:selectOneMenu id="encargado" value="#{ComedorControlador.usuario.id}" required="false" requiredMessage="The Encargado field is required." filter="true" filterMatchMode="">
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{UsuariosControlador.ConsultarTodos()}" var="enc" itemValue="#{enc.id}" itemLabel="#{enc.documento}" />
+                    </p:selectOneMenu>
+                    </h:panelGrid>
+                </p:fieldset>
+                    
+                <br/>
+                    
+                <p:commandButton action="#{ComedorControlador.Actualizar()}" value="Actualizar" >
+                        <p:confirm header="Confirmacion" message="Estas seguro que deceas actualizar estos datos?" icon="io io-icon-alert" />
+                </p:commandButton>
+                    
+                <p:commandButton action="listarYeditar" value=" Volver" >
+                        <p:confirm header="Confirmacion" message="Estas seguro que deceas salir sin actualizar ningun dato?" icon="io io-icon-alert" />
+                </p:commandButton>
+            </p:fieldset>
+                
+                
+                <p:confirmDialog global="true" showEffect="fade">
+                    <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+                    <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
+                </p:confirmDialog>
+                
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+

@@ -1,0 +1,94 @@
+body{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: Arial;
+    
+}
+/* estilos generales */
+
+nav ul{
+    list-style: none;
+    padding: 0;
+    z-index: 1000;
+}
+nav li{
+    line-height: 2.6rem;
+    position: relative;
+}
+nav li ul{
+    position: absolute;
+}
+
+
+nav a{
+    color: #ddd;
+    display: block;
+    padding: 0 2.5em;
+    text-decoration: none;
+    transition: .4s;
+    cursor:pointer;
+}
+
+nav li a:hover{
+    width: auto;
+    background: #7CB89D;
+    color: black;
+    border-left: 10px solid tomato;
+}
+nav li ul{
+    display: none;
+}
+
+nav li:hover > ul{
+    display: block;
+}
+
+/* Primer nivel */
+nav > ul{
+    
+    float: top;
+    background: #333;
+    display: table;
+    width: 100%;
+    margin-top: 0%;
+   
+
+    
+}
+
+nav > ul > li{
+    float: left;
+}
+
+
+/* Segundo nivel */
+
+nav li li{
+    text-align: center;
+    background: #222;
+    width: 250px;
+    
+}
+nav > ul > li > ul{
+    top: 100%;
+}
+
+
+/* Tercer nivel */
+nav ul ul ul{
+   left: 100%;
+   top: 0;
+}
+#menuIdioma{
+    color: white;
+}
+#menuIdioma:hover{
+    color: black;
+}
+#desple{
+    color: white;
+}
+#desple:hover{
+    color: black;
+}

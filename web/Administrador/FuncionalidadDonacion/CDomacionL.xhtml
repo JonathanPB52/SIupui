@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="../../icomoon/style.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/scroll.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/select.css"></link>
+        <link rel="stylesheet" href="../../Estilos/AnimacionesCss/animate.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.min.css"></link>
+
+    </h:head>
+    <h:body>
+        <f:view locale="#{sessionController.languageSelected}">
+            <p:growl autoUpdate="true" showDetail="false" />
+            <div class="section container" >
+                <div class="row">
+
+                    <h:form class="col s12" >
+                        <div class="row card-panel">
+                            <div class="col s12">
+                                <div style="background: #00C853" class="row card-panel">
+                                    <h3>Informacion de donacion</h3>
+                                </div>
+                            </div>
+                            <div  class="col s12">
+                                <div style="color: black" class="row card-panel">
+                                    <div class="col s12">
+                                        <p:outputLabel style="color: black" value="#{msjcrearDonacion.FechaDeEntrada}" />
+                                        <p:inputText disabled="true" value="#{DonacionControlador.donacion.fechaDeEntrada}" >
+                                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                                        </p:inputText>
+                                    </div>
+                                    <div class="col s12">
+                                        <p:outputLabel style="color: black" value="#{msjcrearDonacion.CantidadDonada}"/>
+                                        <p:inputText disabled="true" value="#{DonacionControlador.donacion.cantidadDonada}"/>
+                                    </div>
+                                    <div class="col s12">
+                                        <p:outputLabel style="color: black" value="#{msjcrearDonacion.BienDonado}" />
+                                        <p:inputText disabled="true" value="#{DonacionControlador.donacion.bienDonado}" />
+                                    </div>
+                                    <div class="col s12">
+                                        <p:outputLabel style="color: black" value="#{msjcrearDonacion.BienDonado}" />
+                                        <p:inputText disabled="true" value="#{DonacionControlador.donacion.evidenciaDonacion}" />
+                                    </div>
+                                    <div class="col s12">
+                                        <p:outputLabel style="color: black" value="Nombre de archivo" />
+                                        <br/>
+                                        <br/>
+                                        <iframe width="100%" height="250px" src="#{DonacionControlador.donacion.evidenciaDonacion}" />
+                                        
+                                    </div>
+                                    <div class="col s12">
+                                        <p:outputLabel style="color: black" value="#{msjcrearDonacion.TipoDonacion}" />
+                                        <p:inputText disabled="true" value="#{DonacionControlador.donacion.tipoDonacion.tipoDonacion}" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="row card-panel">
+                            <div class="col s12">
+                                <div style="background: #00C853" class="row card-panel">
+                                    <h3>Informacion de donante</h3>
+                                </div>
+                            </div>
+                            <div  class="col s12">
+                                <div style="color: black" class="row card-panel">
+                                    <div class="col s6">
+                                        <p:outputLabel style="color: black" value="Primer nombre" />
+                                        <p:inputText disabled="true" value="#{DonacionControlador.donacion.donante.nombre}" />    
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel style="color: black" value="Segundo nombre" />
+                                        <p:inputText disabled="true" value="#{DonacionControlador.donacion.donante.segundoNombre}" />    
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel style="color: black" value="Primer apellido" />
+                                        <p:inputText disabled="true" value="#{DonacionControlador.donacion.donante.apellido}" />    
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel style="color: black" value="Segundo apellido" />
+                                        <p:inputText disabled="true" value="#{DonacionControlador.donacion.donante.segundoApellido}" />    
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel style="color: black" value="Tipo de telefono" />
+                                        <p:inputText disabled="true" value="#{DonacionControlador.donacion.donante.tipoTelefono.tipoDeTelefono}" />    
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel style="color: black" value="Numero de telefono" />
+                                        <p:inputText disabled="true" value="#{DonacionControlador.donacion.donante.telefono}" />    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </h:form>
+                    <div class="fixed-action-btn">
+                        <a href="listarDonacion.xhtml" title="Volver" class="btn-floating btn-large icon-undo2"></a>
+                    </div>
+                </div>
+            </div>
+        </f:view>
+        <script src="../../Estilos/materialize/js/materialize.js" ></script>
+        <script src="../../Estilos/materialize/js/materialize.min.js" ></script>
+    </h:body>
+</html>
+

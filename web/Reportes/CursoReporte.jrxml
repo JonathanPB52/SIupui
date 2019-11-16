@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a55a6fde-5587-4d1b-ac85-1baba5754a7b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     cursos.`Id` AS cursos_Id,
+     cursos.`cantidadninos` AS cursos_cantidadninos,
+     cursos.`nombreCurso` AS cursos_nombreCurso
+FROM
+     `cursos` cursos]]>
+	</queryString>
+	<field name="cursos_Id" class="java.lang.Integer"/>
+	<field name="cursos_cantidadninos" class="java.lang.Integer"/>
+	<field name="cursos_nombreCurso" class="java.lang.String"/>
+	<background>
+		<band height="802" splitType="Stretch">
+			<image>
+				<reportElement x="454" y="69" width="152" height="103" uuid="61c67c81-ec29-4662-b2b2-1d394aa11103"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="22" y="59" width="152" height="103" forecolor="#FFFFFF" uuid="503733c0-24f9-44da-8239-6bd572fb9714"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="10" y="520" width="152" height="103" uuid="6b7bac96-04a1-41bb-aac6-051ebdc2df3a"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="438" y="520" width="152" height="103" uuid="7930b6b3-5ec3-402a-88a9-d802ce295f0b"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image isUsingCache="true">
+				<reportElement x="162" y="10" width="152" height="103" uuid="60266318-7acf-4c7e-92d4-8e16a4066181"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="454" y="293" width="152" height="103" uuid="32990e57-4ae3-4adc-b975-83dd27598337"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="328" y="10" width="152" height="103" uuid="8e0aacf8-9d68-479b-9be7-91b0d6625fd3"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="10" y="293" width="152" height="103" uuid="200787c7-e561-44c1-9d3a-479e92aa37d9"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="223" y="670" width="152" height="103" uuid="271a5cac-095c-4f20-bcd6-1921e02af95d"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="151" y="0" width="126" height="79" uuid="fe8c5a8e-26f9-472f-94d3-c6d84c900518"/>
+				<textElement>
+					<font size="48" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UPUI]]></text>
+			</staticText>
+			<image>
+				<reportElement x="407" y="0" width="148" height="79" uuid="6538cf86-f37e-4fbc-baff-e7b850b56e8a"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\iconoSystema\\logoSistema.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="51" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="13" width="185" height="28" uuid="731e4114-ef69-4773-92e7-3b551f1179b3"/>
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cursos registrados:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="185" height="20" uuid="aff6c54f-4d4d-4c20-940f-d35802343900"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[ID curso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="185" y="0" width="185" height="20" uuid="0cc29f20-2dd8-4ce9-9174-da832b8ed1aa"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Cantidad de niños]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="0" width="185" height="20" uuid="657b47c1-fee9-4b75-bf3e-4ab87a6506fe"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Nombre de curso]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="34" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="185" height="20" uuid="ca44f3d9-ca95-4c57-a830-95c46a1093fd"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{cursos_Id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="0" width="185" height="20" uuid="20c17d58-b6ad-48e5-9c14-f8947d616063"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{cursos_cantidadninos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="0" width="185" height="20" uuid="10854e19-1146-4dfb-b551-fa7ef81e854d"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{cursos_nombreCurso}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="455" y="34" width="100" height="20" uuid="8c53ec57-e8f9-407e-bbdc-757dc8110069"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

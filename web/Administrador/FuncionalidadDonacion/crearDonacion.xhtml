@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="../../icomoon/style.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/scroll.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/select.css"></link>
+        <link rel="stylesheet" href="../../Estilos/AnimacionesCss/animate.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.min.css"></link>
+
+    </h:head>
+    <h:body>
+        <f:view locale="#{sessionController.languageSelected}">
+            <p:growl autoUpdate="true" showDetail="false" />
+            <div class="section container" >
+                <div class="row">
+
+                    <h:form class="col s12" enctype="multipart/form-data">
+                        <div class="row card-panel">
+                            <div class="col s12">
+                                <div class="row card-panel">
+                                    <h3>Registro de donacion</h3>
+                                </div>
+                            </div>
+                            <div class="col s12">
+                                <div class="row card-panel">
+                                    <div class="col s12">
+                                        <p:outputLabel value="#{msjcrearDonacion.FechaDeEntrada}" />
+                                        <p:inputText class="datepicker" placeholder="Fecha de venta" required="true" value="#{DonacionControlador.donacion.fechaDeEntrada}" requiredMessage="Es necesario que pongas una fecha de ingreso">
+                                            <f:convertDateTime pattern="yyyy-MM-dd" />
+                                        </p:inputText>
+                                    </div>
+                                    <div class="col s12">
+                                        <p:outputLabel value="#{msjcrearDonacion.CantidadDonada}"/>
+                                        <p:inputText placeholder="Cantidad donanda" type="number" id="cantidadDonada" value="#{DonacionControlador.donacion.cantidadDonada}" title="CantidadDonada" required="true" requiredMessage="Se necesita poner una cantidad"/>
+
+                                    </div>
+                                    <div class="col s12">
+                                        <p:outputLabel value="#{msjcrearDonacion.BienDonado}" />
+                                        <p:inputText placeholder="Bien donado" id="bienDonado" value="#{DonacionControlador.donacion.bienDonado}" title="BienDonado" required="true" requiredMessage="Es necesario que registres el nombre del bien donado"/>
+
+                                    </div>
+                                    <div class="input-field col s12 file-field">
+                                        <div class="btn">
+                                            <samp>Seleccione un archivo</samp>
+                                            <h:inputFile pt:id="archivoInput" onchange="validarExtencion()" value="#{DonacionControlador.file1}" required="true" requiredMessage="Es necesario que cargas una evidencia."/>
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <h:inputText class="file-path" />
+                                        </div>
+                                    </div>
+                                    <div class="col s12">
+                                        <p:outputLabel value="#{msjcrearDonacion.TipoDonacion}" />
+                                        <p:selectOneMenu style="width: 100%" styleClass="select" id="tipoDonacion" value="#{DonacionControlador.tipoDonacion.id}" required="true" requiredMessage="The TipoDonacion field is required.">
+                                            <!-- TODO: update below reference to list of available items-->
+                                            <f:selectItems value="#{TipoDonacionControlador.ConsultarTodos()}" var="tdon" itemValue="#{tdon.id}" itemLabel="#{tdon.tipoDonacion}"/>
+                                        </p:selectOneMenu>
+                                    </div>
+                                    <div class="col s12">
+                                        <p:outputLabel value="#{msjcrearDonacion.Donante}" />
+                                        <p:selectOneMenu style="width: 100%" styleClass="select" value="#{DonacionControlador.donante.id}" required="true" requiredMessage="The Donante field is required." filter="true">
+                                            <!-- TODO: update below reference to list of available items-->
+                                            <f:selectItems class="item" value="#{DonanteControlador.ConsultarTodos()}" var="dont" itemValue="#{dont.id}" itemLabel="#{dont.telefono}"/>
+                                        </p:selectOneMenu>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col s12">
+                                <div class="row card-panel">
+                                    <h:commandButton class="btn" value="#{msjcrearDonacion.titulo}" action="#{DonacionControlador.Registrar()}"></h:commandButton>
+                                </div>
+                            </div>
+                        </div>
+                    </h:form>
+                </div>
+            </div>
+        </f:view>
+        <script src="../../Estilos/materialize/js/materialize.js" ></script>
+        <script src="../../Estilos/materialize/js/materialize.min.js" ></script>
+        <script>
+            const Calendar = document.querySelector('.datepicker');
+            M.Datepicker.init(Calendar, {
+                format: 'yyyy-mm-dd',
+                i18n: {
+                    months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                    monthsShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                    weekdays: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Juevez', 'Viernes', 'Sábado'],
+                    weekdaysShort: ['Dom', 'Lun', 'Mar', 'Mir', 'Juv', 'Vie', 'Sab'],
+                    weekdaysAbbrev: ['D', 'L', 'M', 'X', 'J', 'V', 'S']
+                }
+            });
+        </script>
+        <script type="text/javascript">
+            function validarExtencion()
+            {
+                var archivoInput = document.getElementById('archivoInput');
+                var archivoRuta = archivoInput.value;
+                var extencion = /(.png|.PNG|.jpg|.JPG)$/i;
+                
+                if (!extencion.exec(archivoRuta))
+                {
+                    alert('Asegurate de seleccionar una imagen');
+                    archivoInput.value='';
+                    return false;
+                }
+                else
+                {
+                    archivoInput.value=archivoInput;
+                    return true;
+                }
+            }
+        </script>
+    </h:body>
+</html>
+

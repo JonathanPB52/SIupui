@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
+        <link rel="stylesheet" href="icomoon/style.css"></link>
+        <title>UPUI</title>
+        <link rel="stylesheet" href="Estilos/AnimacionesCss/animate.css"></link>
+        <link rel="stylesheet" href="Estilos/css/index.css"></link>
+        <link rel="stylesheet" href="Estilos/css/scroll.css"></link>
+    </h:head>
+
+    <h:body>
+        <f:view locale="#{sessionController.languageSelected}">
+        <div class="menu">
+            <nav class="nav nav-pills nav-fill navbar-dark bg-dark">
+                <a class="nav-item nav-link btn-group btn-group-sm bg-dark" href="index.xhtml">#{msjindex.Inicio}</a>
+                <a class="nav-item nav-link btn-group btn-group-sm bg-dark" href="#mision">#{msjindex.Misionyvision}</a>
+                <a class="nav-item nav-link btn-group btn-group-sm bg-dark" href="#objetivos">#{msjindex.Objetivos}</a>
+                <a class="nav-item nav-link btn-group btn-group-sm bg-dark" href="#servicios">#{msjindex.Servicios}</a>
+                <a class="nav-item nav-link btn-group btn-group-sm bg-dark" href="#contactenos">#{msjindex.Contactenos}</a>
+                
+                    <li class="nav-item active mr-auto">
+                        <h:form id="form-logout" prependId="false">
+                            <c:forEach items="#{sessionController.getSupportLanguages()}" var="idioma">
+                                <h:commandLink actionListener="#{sessionController.cambiarIdioma(idioma)}"><img width="50" height="25" style="margin-left: 5%; margin-top: 5%" src="Archivos/img/#{idioma}.png"></img></h:commandLink> 
+                            </c:forEach>
+                        </h:form>
+                    </li>
+                
+                
+                <a class="nav-item nav-link btn-group btn-group-sm bg-dark" href="login.xhtml">#{msjindex.Ingresar}</a>
+            </nav>
+        </div>
+
+        <div class="Contenido">
+            <div class="container">
+
+                <div class="Slaider">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="Estilos/img/slaider/1.jpg" width="100%" height="450px" alt="..."></img>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Estilos/img/slaider/2.jpg" width="100%" height="450px" alt="..."></img>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="Estilos/img/slaider/3.jpg" width="100%" height="450px" alt="..."></img>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+                <section id="mision">#{msjindex.Misionyvision}</section>
+                <div class="Contenido1">
+                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-Mision" role="tab" aria-controls="pills-home" aria-selected="true">#{msjindex.TitleMision}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-Vision" role="tab" aria-controls="pills-profile" aria-selected="false">#{msjindex.TitleVision}</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div style="font-size:18px;" class="tab-pane fade show active" id="pills-Mision" role="tabpanel" aria-labelledby="pills-home-tab">#{msjindex.Mision}</div>
+                        <div style="font-size:19px;" class="tab-pane fade" id="pills-Vision" role="tabpanel" aria-labelledby="pills-profile-tab">#{msjindex.Vision}</div>
+                    </div>
+                </div>
+                <section id="objetivos">#{msjindex.Objetivos}</section>
+                <div class="Contenido1">
+                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-general" role="tab" aria-controls="pills-home" aria-selected="true">#{msjindex.titleObjetivoGeneral}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-especifico" role="tab" aria-controls="pills-profile" aria-selected="false">#{msjindex.ObjetivosEspecificos}</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div style="font-size:19px;" class="tab-pane fade show active" id="pills-general" role="tabpanel" aria-labelledby="pills-home-tab">#{msjindex.textoObjetivoGeneral}</div>
+                        <div style="font-size:20px;" class="tab-pane fade" id="pills-especifico" role="tabpanel" aria-labelledby="pills-profile-tab">#{msjindex.ObjetivoEspecificos}</div>
+                    </div>
+                </div>
+                <section id="servicios">#{msjindex.Servicios}</section>
+                <div class="Contenido2">
+
+                    <div class="div-porta3">
+                        <h2>#{msjindex.TitleJardines}</h2>
+                        <img src="Estilos/img/servicios/Jardin.jpg" style="width: 90%; margin: 5%" alt=""></img>
+                        <p style="font-size:14px;">#{msjindex.textJardines}</p>
+                    </div>
+                    <div class="div-porta5">
+                        <h4>#{msjindex.TitleComedores}</h4>
+                        <img src="Estilos/img/servicios/comedores.jpg" style="width: 90%; margin: 5%" alt=""></img>
+                        <p style="font-size:14px;">#{msjindex.TextComedores}</p>
+                    </div>
+                    <div class="div-porta5">
+                        <h4>#{msjindex.Reciclaje}</h4>
+                        <img src="Estilos/img/servicios/Reciclaje.png" style="width: 90%; margin: 5%" alt=""></img>
+                        <p style="font-size:14px;">#{msjindex.TitleReciclaje}</p>
+
+                    </div>
+
+                </div>
+                <section id="contactenos">#{msjindex.Contactenos}</section>
+                <div class="Contenido3">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.6734791235895!2d-74.06610808561614!3d4.652196496620609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9bec29da8c83%3A0x36adf101e9ae0d3c!2sCl.+65+%2313-98%2C+Bogot%C3%A1!5e0!3m2!1ses-419!2sco!4v1543843840630" width="100%" height="100%" frameborder="0" style="border: 1px" allowfullscreen=""></iframe>
+                </div>
+                <div id="menuInferior" class="section1">
+                    <nav class="nav nav-pills nav-fill navbar-dark bg-dark">
+                        <a class="nav-item nav-link btn-group btn-group-sm bg-dark" href="index.xhtml">#{msjindex.Inicio}</a>
+                        <a class="nav-item nav-link btn-group btn-group-sm bg-dark" href="#mision">#{msjindex.Misionyvision}</a>
+                        <a class="nav-item nav-link btn-group btn-group-sm bg-dark" href="#objetivos">#{msjindex.Objetivos}</a>
+                        <a class="nav-item nav-link btn-group btn-group-sm bg-dark" href="#servicios">#{msjindex.Servicios}</a>
+                        <a class="nav-item nav-link btn-group btn-group-sm bg-dark" href="#contactenos">#{msjindex.Contactenos}</a>
+                    </nav>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+
+</f:view>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </h:body>
+</html>
+

@@ -1,0 +1,22 @@
+table{
+    width: 100%;
+}
+td{
+    width: 50%;
+}
+input.ui-inputfield.ui-inputtext.ui-widget.ui-state-default.ui-corner-all{
+    width: 90%;
+    font-family: cursive;
+}
+textarea.ui-inputfield.ui-inputtextarea.ui-widget.ui-state-default.ui-corner-all.ui-inputtextarea-resizable{
+    width: 90%;
+    font-family: cursive;
+}
+
+label.ui-outputlabel.ui-widget{
+    font-family: cursive;
+}
+input.ui-inputfield.ui-widget.ui-state-default.ui-corner-all{
+    width: 90%;
+    font-family: cursive;
+}

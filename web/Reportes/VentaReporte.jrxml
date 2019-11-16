@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cbb8d5d0-da16-461b-a343-009b15d0f25a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="320"/>
+	<parameter name="TipoDeMaterial" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     reciclaje.`fechaDeVenta` AS reciclaje_fechaDeVenta,
+     reciclaje.`cantidad` AS reciclaje_cantidad,
+     reciclaje.`valor` AS reciclaje_valor,
+     reciclaje.`Id` AS reciclaje_Id,
+     tipo_de_material.`tipoMaterial` AS tipo_de_material_tipoMaterial,
+     peso_venta.`peso` AS peso_venta_peso
+FROM
+     `tipo_de_material` tipo_de_material INNER JOIN `reciclaje` reciclaje ON tipo_de_material.`Id` = reciclaje.`tipoDeMaterial`
+     INNER JOIN `peso_venta` peso_venta ON reciclaje.`tipo_peso` = peso_venta.`id`
+WHERE tipo_de_material.`tipoMaterial`=$P{TipoDeMaterial}]]>
+	</queryString>
+	<field name="reciclaje_fechaDeVenta" class="java.sql.Date"/>
+	<field name="reciclaje_cantidad" class="java.lang.Integer"/>
+	<field name="reciclaje_valor" class="java.lang.Double"/>
+	<field name="reciclaje_Id" class="java.lang.Integer"/>
+	<field name="tipo_de_material_tipoMaterial" class="java.lang.String"/>
+	<field name="peso_venta_peso" class="java.lang.String"/>
+	<background>
+		<band height="802" splitType="Stretch">
+			<image>
+				<reportElement x="227" y="75" width="152" height="103" uuid="bbfe4393-3294-45bb-98e2-a98f7315e0f4"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="298" y="0" width="152" height="103" uuid="91611583-f34c-4680-b1f0-848cad15cf2b"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="164" y="0" width="152" height="103" uuid="57ef7e8c-08da-4c67-aab7-80cfb6a7c026"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="0" y="0" width="152" height="103" forecolor="#FFFFFF" uuid="912c5f1e-2587-4f52-b759-13db3be29b9f"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="435" y="0" width="152" height="103" uuid="30ebae63-4905-4b12-bd9c-eaeb5d7de0c6"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="342" y="697" width="152" height="103" uuid="f9a2543b-5936-42fa-80b3-2ac22c0660bf"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="435" y="622" width="152" height="103" uuid="c9ee4468-bb6d-460d-99f4-38c73e4e65a4"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="0" y="622" width="152" height="103" forecolor="#FFFFFF" uuid="f6dcc8e9-5a6e-4929-9741-53489008dc9e"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="298" y="622" width="152" height="103" uuid="30c3c04f-8a80-4ef3-abf1-76f5c956ccfc"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="227" y="697" width="152" height="103" uuid="febc6910-7b38-4ee4-8a12-33c1b224a64b"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image isUsingCache="true">
+				<reportElement x="87" y="689" width="152" height="103" uuid="05e99ba9-9194-47c6-b7f1-8943ad7424e6"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="164" y="622" width="152" height="103" uuid="df16f8fc-5b62-47ec-bd2b-6af8ababbdb6"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="186" y="0" width="173" height="79" uuid="462e7e1d-eca7-4aa3-adbb-8fb62b8104c1"/>
+				<textElement textAlignment="Center">
+					<font size="58"/>
+				</textElement>
+				<text><![CDATA[UPUI]]></text>
+			</staticText>
+			<image>
+				<reportElement x="405" y="0" width="148" height="79" uuid="1b943ee5-4425-44b5-8f7e-413813c10094"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\iconoSystema\\logoSistema.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="66" splitType="Stretch">
+			<staticText>
+				<reportElement x="21" y="15" width="218" height="40" uuid="c8e26ea6-806b-4944-bdab-185788dde289"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte filtrado por tipo de material:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="104" y="35" width="100" height="20" uuid="4204baec-6b2d-4163-9cc9-f412385e995b"/>
+				<textFieldExpression><![CDATA[$F{tipo_de_material_tipoMaterial}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="330" y="15" width="218" height="40" uuid="33f23270-7502-4387-8641-5fff1650f124"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="382" y="19" width="100" height="20" uuid="e9693232-f505-4a53-b99f-f9050ba36f46"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<rectangle>
+				<reportElement x="9" y="10" width="530" height="41" backcolor="#CCCCFF" uuid="f5504850-ced1-4091-afe1-6fdf686c2e52"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="15" y="24" width="21" height="20" uuid="1293381a-13ab-424f-b67d-9cbb9cc9f407"/>
+				<text><![CDATA[ID:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="64" y="21" width="100" height="20" uuid="2e092ea2-0879-49b5-a273-1e044f6b384a"/>
+				<text><![CDATA[Fecha de venta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="175" y="22" width="100" height="20" uuid="5317e0ff-8a12-463d-8e3b-a9b77eefe410"/>
+				<text><![CDATA[Tipo de material]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="312" y="23" width="100" height="20" uuid="6c70d3da-6972-415c-b785-387557d9ef3b"/>
+				<text><![CDATA[Peso de venta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="434" y="22" width="100" height="20" uuid="52f24756-f5cd-4d46-a0aa-5ee0d6352e3d"/>
+				<text><![CDATA[Valor venta]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="48" splitType="Stretch">
+			<rectangle>
+				<reportElement x="9" y="6" width="530" height="36" backcolor="#FFFFFF" uuid="4fade975-e872-413b-b9a4-fbaefb7aae34"/>
+			</rectangle>
+			<textField>
+				<reportElement x="19" y="12" width="21" height="20" uuid="8f44c667-65f0-4078-a9fc-946939f64b10"/>
+				<textFieldExpression><![CDATA[$F{reciclaje_Id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="67" y="12" width="100" height="20" uuid="fe8a2505-ec99-4d63-900f-4cef258acd5e"/>
+				<textFieldExpression><![CDATA[$F{reciclaje_fechaDeVenta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="178" y="12" width="100" height="20" uuid="d5191358-d153-44c5-9f5e-1e69f5ba9b0d"/>
+				<textFieldExpression><![CDATA[$F{tipo_de_material_tipoMaterial}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="317" y="12" width="100" height="20" uuid="f94ca572-da8a-4b2e-a068-8fdd6c1318bb"/>
+				<textFieldExpression><![CDATA[$F{peso_venta_peso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="435" y="12" width="100" height="20" uuid="f23e50ce-f665-424a-8cfd-60680a8cfa19"/>
+				<textFieldExpression><![CDATA[$F{reciclaje_valor}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

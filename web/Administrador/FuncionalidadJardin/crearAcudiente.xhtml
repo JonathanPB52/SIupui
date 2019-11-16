@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Registro acudiente</title>
+        <link rel="stylesheet" href="../../icomoon/style.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/scroll.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/select.css"></link>
+        <link rel="stylesheet" href="../../Estilos/AnimacionesCss/animate.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.min.css"></link>
+    </h:head>
+    <h:body>
+        <f:view locale="#{sessionController.languageSelected}">
+            <p:growl autoUpdate="true" showDetail="false" />
+
+            <div class="section container" >
+                <div class="row">
+                    <h:form class="col s12">
+                        <div class="row card-panel">
+                            <div class="col s12">
+                                <div class="row card-panel">
+                                    <h3>Registro de acudiente</h3>
+                                </div>
+                            </div>
+                            <div class="col s12">
+                                <div class="row card-panel">
+                                    <div class="col s6">
+                                        <p:outputLabel value="#{msjFormularioAcudiente.nombre}"/>
+                                        <p:inputText placeholder="#{msjFormularioAcudiente.nombre}" id="nombreAcudiente" value="#{ControladorAcudiente.acudiente.nombreAcudiente}" title="#{msjFormularioAcudiente.nombre}" required="true" requiredMessage="#{msjFormularioAcudiente.Alerta1nombre}" a:maxlength="11" />
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="#{msjFormularioAcudiente.Snombre}" ></p:outputLabel>
+                                        <p:inputText placeholder="#{msjFormularioAcudiente.Snombre}" id="segundoNombre" value="#{ControladorAcudiente.acudiente.segundoNombre}" title="#{msjFormularioAcudiente.Snombre}" a:maxlength="11" />
+
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="#{msjFormularioAcudiente.apellido}"/>
+                                        <p:inputText placeholder="#{msjFormularioAcudiente.apellido}" id="apellidoAcudiente" value="#{ControladorAcudiente.acudiente.apellidoAcudiente}" title="#{msjFormularioAcudiente.apellido}" required="true" requiredMessage="#{msjFormularioAcudiente.Alerta1apellido}" a:maxlength="11" />
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="#{msjFormularioAcudiente.Sapellido}"/>
+                                        <p:inputText placeholder="#{msjFormularioAcudiente.Sapellido}" id="segundoApellido" value="#{ControladorAcudiente.acudiente.segundoApellido}" title="#{msjFormularioAcudiente.Sapellido}" required="true" requiredMessage="#{msjFormularioAcudiente.Alerta2apellido}" a:maxlength="11" />
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="#{msjFormularioAcudiente.Telefono}"/>
+                                        <p:inputText placeholder="#{msjFormularioAcudiente.Telefono}" type="number" id="telAcudiente" value="#{ControladorAcudiente.acudiente.telAcudiente}" title="#{msjFormularioAcudiente.Telefono}" required="true" requiredMessage="#{msjFormularioAcudiente.AlertaTelefono}" />
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="#{msjFormularioAcudiente.Correo}"/>
+                                        <p:inputText type="email" placeholder="#{msjFormularioAcudiente.Correo}" id="correoAcudiente" value="#{ControladorAcudiente.para}" title="#{msjFormularioAcudiente.Correo}" required="true" requiredMessage="#{msjFormularioAcudiente.AlertaCorreo}" a:maxlength="60" />
+                                    </div>
+                                    <div class="col s12">
+                                        <p:outputLabel value="#{msjFormularioAcudiente.Ttelefono}"/>
+                                        <p:selectOneMenu styleClass="select" style="width: 100%" id="tipoTelefono" value="#{ControladorAcudiente.tipoTelefonno.id}" >
+                                            <!-- TODO: update below reference to list of available items-->
+                                            <f:selectItems value="#{TipoTelefonoControlador.ConsultarTodos()}" var="ttel" itemValue="#{ttel.id}" itemLabel="#{ttel.tipoDeTelefono}" />
+                                        </p:selectOneMenu>
+                                    </div>
+                                    <div class="col s12">
+                                        <p:outputLabel value="#{msjFormularioAcudiente.TipoDocumento}"/>
+                                        <p:selectOneMenu styleClass="select" style="width: 100%" id="tipoDocumento" value="#{ControladorAcudiente.tipoDocumento.id}">
+                                            <!-- TODO: update below reference to list of available items-->
+                                            <f:selectItem itemValue="1" itemLabel="Cedula de ciudadania" />
+                                        </p:selectOneMenu>
+                                    </div>
+                                    <div class="col s12">
+                                        <p:outputLabel value="#{msjFormularioAcudiente.Documento}"/>
+                                        <p:inputText placeholder="#{msjFormularioAcudiente.Documento}" type="number" id="documento" value="#{ControladorAcudiente.acudiente.documento}" title="#{msjFormularioAcudiente.Documento}" required="true" requiredMessage="#{msjFormularioAcudiente.Documento}"/>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col s12">
+                                        <div class="row card-panel">
+                                            <h:commandButton class="btn" action="#{ControladorAcudiente.Registrar()}" value="#{msjFormularioAcudiente.Registrar}"  >
+
+                                            </h:commandButton>
+                                        </div>
+                                    </div>
+
+                        </div>
+                    </h:form>
+                    <div class="fixed-action-btn">
+                        <a href="indexJardin.xhtml" title="volver" class="btn-floating btn-large icon-undo2"></a>
+                    </div>
+                </div>
+            </div>
+
+        </f:view>
+        <script src="../../Estilos/materialize/js/materialize.js" ></script>
+        <script src="../../Estilos/materialize/js/materialize.min.js" ></script>
+    </h:body>
+</html>
+

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="564ae014-b775-43fa-896f-169fe3d6d82c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     acudiente.`nombreAcudiente` AS acudiente_nombreAcudiente,
+     acudiente.`apellidoAcudiente` AS acudiente_apellidoAcudiente,
+     acudiente.`segundoApellido` AS acudiente_segundoApellido,
+     acudiente.`telAcudiente` AS acudiente_telAcudiente,
+     acudiente.`tipoDocumento` AS acudiente_tipoDocumento,
+     acudiente.`documento` AS acudiente_documento,
+     acudiente.`correoAcudiente` AS acudiente_correoAcudiente
+FROM
+     `acudiente` acudiente]]>
+	</queryString>
+	<field name="acudiente_nombreAcudiente" class="java.lang.String"/>
+	<field name="acudiente_apellidoAcudiente" class="java.lang.String"/>
+	<field name="acudiente_segundoApellido" class="java.lang.String"/>
+	<field name="acudiente_telAcudiente" class="java.lang.String"/>
+	<field name="acudiente_tipoDocumento" class="java.lang.Integer"/>
+	<field name="acudiente_documento" class="java.lang.String"/>
+	<field name="acudiente_correoAcudiente" class="java.lang.String"/>
+	<background>
+		<band height="802" splitType="Stretch">
+			<image>
+				<reportElement x="454" y="69" width="152" height="103" uuid="52d31090-6259-48aa-a613-5c871d282244"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="22" y="59" width="152" height="103" forecolor="#FFFFFF" uuid="8dd6c36a-d1a0-4305-97ee-e1ffe9090f3e"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="10" y="520" width="152" height="103" uuid="bc942ef5-9e55-4d2c-812c-ab97d4ce6f03"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="438" y="520" width="152" height="103" uuid="c4712a67-8b2b-4fbd-9d91-dece8a1bfbd0"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image isUsingCache="true">
+				<reportElement x="162" y="10" width="152" height="103" uuid="241d74da-9a6d-4c90-8da6-1fb276ecc0d9"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="454" y="293" width="152" height="103" uuid="5ebdf784-8aeb-49e5-9dfe-ad197b30a7e3"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="328" y="10" width="152" height="103" uuid="1bdd8e32-9fbf-4a9b-9899-a9a1724940c3"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="10" y="293" width="152" height="103" uuid="b7fc6d31-69ec-45df-ab24-e45ecb57eabc"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="223" y="670" width="152" height="103" uuid="198de3ab-2f17-4221-9345-7abb930c0841"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="181" y="0" width="119" height="79" uuid="d699ad10-efbb-4bdb-a324-19a7830bc89d"/>
+				<textElement>
+					<font size="48" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UPUI]]></text>
+			</staticText>
+			<image>
+				<reportElement x="407" y="0" width="148" height="79" uuid="3c6fcda4-30a2-4cb0-954c-b2701aaf55d0"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\iconoSystema\\logoSistema.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="184" height="35" uuid="d8ae0ae6-4249-49e0-89b9-dc9fb8f9027d"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Acudiente registrados:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="34" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="79" height="20" uuid="745cdac7-8554-4df1-b25d-154de22df358"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="79" y="0" width="79" height="20" uuid="04622807-940a-4b55-b4dd-6da098abd0d4"/>
+				<text><![CDATA[Apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="158" y="0" width="79" height="20" uuid="a5196895-0320-43af-8dbe-d5baaa60ea01"/>
+				<text><![CDATA[S nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="237" y="0" width="79" height="20" uuid="5baa0717-b51c-4caa-8c7a-b48f4351d16f"/>
+				<text><![CDATA[S apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="316" y="0" width="79" height="20" uuid="31f94e52-14f1-43ee-b464-015b24c13671"/>
+				<text><![CDATA[Documento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="395" y="0" width="158" height="20" uuid="4e5d090e-e16d-4161-8899-cf2976774853"/>
+				<text><![CDATA[Correo electronico]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="79" height="20" uuid="1cabbeb5-3542-4153-8335-740edd8abe34"/>
+				<textFieldExpression><![CDATA[$F{acudiente_nombreAcudiente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="79" y="0" width="79" height="20" uuid="f9c63d63-6fe2-4ac6-a98d-847f8e8c1b66"/>
+				<textFieldExpression><![CDATA[$F{acudiente_apellidoAcudiente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="158" y="0" width="79" height="20" uuid="cfe076db-7a87-4d9b-a0ee-69e62ddb64fe"/>
+				<textFieldExpression><![CDATA[$F{acudiente_segundoApellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="237" y="0" width="79" height="20" uuid="aafb9103-af9c-4a39-b4df-ea725014997b"/>
+				<textFieldExpression><![CDATA[$F{acudiente_telAcudiente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="316" y="0" width="79" height="20" uuid="cdec6ffd-281d-45d6-ab08-d617aa185928"/>
+				<textFieldExpression><![CDATA[$F{acudiente_documento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="395" y="0" width="158" height="20" uuid="d3fb3643-b0e0-41ac-89a0-1c8f097e11f9"/>
+				<textFieldExpression><![CDATA[$F{acudiente_correoAcudiente}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="65" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="455" y="34" width="100" height="20" uuid="6ccc27e7-395d-4725-9f36-1d25dc601eaa"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="34" width="80" height="20" uuid="6e573534-dc6d-41f3-bf95-9b7ba1ecf3ff"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="80" y="34" width="40" height="20" uuid="1dd459a8-b198-46d4-98f9-366d35769edb"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

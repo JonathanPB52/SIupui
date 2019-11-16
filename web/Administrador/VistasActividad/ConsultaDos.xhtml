@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      template="/WEB-INF/template.xhtml">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="../../icomoon/style.css"></link>
+        <link rel="stylesheet" href="../../Estilos/AnimacionesCss/animate.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.min.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/scroll.css"></link>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"></link>
+    </h:head>
+    <h:body>
+        <f:view>
+
+            <div class="section container" >
+                <div class="row">
+                    <h:form class="col s12">
+                        <div class="row card-panel">
+                            <div class="col s12">
+                                <h3>Informacion de actividad</h3>
+                            </div>
+                            <div class="col s6">
+                                <p:outputLabel value="Nombre curso:"/>
+                            </div>
+                            <div class="col s6">
+                                <p:inputText disabled="true" value="#{ActividadControlador.actividad.curso.nombreCurso}" />
+                            </div>
+
+                            <div class="col s6">
+                                <h:outputLabel value="Fecha de la actividad:" />
+                            </div>
+                            <div class="col s6">
+                                <p:inputText disabled="true" value="#{ActividadControlador.actividad.fechaActividad}" >
+                                    <f:convertDateTime pattern="dd-MM-yyyy" />
+                                </p:inputText>
+                            </div>
+
+                            <div class="col s6">
+                                <h:outputLabel value="Descripcion:" for="descripcion" />
+                            </div>
+                            <div class="col s6">
+                                <p:inputTextarea class="materialize-textarea" disabled="true" value="#{ActividadControlador.actividad.descripcion}" />
+                            </div>
+
+                        </div>
+                    </h:form>
+                    <div class="fixed-action-btn">
+                        <a href="listar.xhtml" title="Seleccionar otro curso" class="btn-floating btn-large icon-undo2"></a>
+                    </div>
+
+                </div>
+            </div>
+        </f:view>
+        <script src="../../Estilos/materialize/js/materialize.js" ></script>
+        <script src="../../Estilos/materialize/js/materialize.min.js" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script>
+            const Calendar = document.querySelector('.datepicker');
+            M.Datepicker.init(Calendar, {
+                format: 'dd-mm-yyyy',
+                i18n: {
+                    months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                    monthsShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                    weekdays: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Juevez', 'Viernes', 'Sábado'],
+                    weekdaysShort: ['Dom', 'Lun', 'Mar', 'Mir', 'Juv', 'Vie', 'Sab'],
+                    weekdaysAbbrev: ['D', 'L', 'M', 'X', 'J', 'V', 'S']
+                }
+            });
+        </script>
+    </h:body>
+</html>
+

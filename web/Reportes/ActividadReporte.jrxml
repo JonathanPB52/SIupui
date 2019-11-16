@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ab7081c6-839c-4d8a-8c03-6ba320d8fae8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="NombreCurso" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     actividades.`Id` AS actividades_Id,
+     actividades.`fechaActividad` AS actividades_fechaActividad,
+     actividades.`descripcion` AS actividades_descripcion,
+     cursos.`nombreCurso` AS cursos_nombreCurso
+FROM
+     `cursos` cursos INNER JOIN `actividades` actividades ON cursos.`Id` = actividades.`curso`
+WHERE cursos.`nombreCurso`=$P{NombreCurso}]]>
+	</queryString>
+	<field name="actividades_Id" class="java.lang.Integer"/>
+	<field name="actividades_fechaActividad" class="java.sql.Date"/>
+	<field name="actividades_descripcion" class="java.lang.String"/>
+	<field name="cursos_nombreCurso" class="java.lang.String"/>
+	<background>
+		<band height="802" splitType="Stretch">
+			<image>
+				<reportElement x="1" y="10" width="152" height="103" forecolor="#FFFFFF" uuid="b3b1b42a-fe81-4578-9f45-4a31967d975b"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="165" y="10" width="152" height="103" uuid="35f7dbe4-2b81-4883-b286-60fc18b8ce60"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="299" y="10" width="152" height="103" uuid="5d42a292-6695-4bf5-9361-8c78ef8eae58"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="228" y="85" width="152" height="103" uuid="627d0833-37da-4a1c-ab3f-c79b551ed29d"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="436" y="10" width="152" height="103" uuid="43f14fc9-7e64-414b-ac20-6248de0b7402"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="299" y="624" width="152" height="103" uuid="47631559-bd03-46a4-9575-b8d788f27b1f"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="436" y="624" width="152" height="103" uuid="d9de9a47-cc1a-4e91-9691-b65413b912b9"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="1" y="624" width="152" height="103" forecolor="#FFFFFF" uuid="26ece704-aba1-48c0-8b26-61a1deea7287"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="165" y="624" width="152" height="103" uuid="7a7d9d88-3b53-4601-b6b5-0ae74853be6c"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image isUsingCache="true">
+				<reportElement x="88" y="691" width="152" height="103" uuid="9007ee48-53b0-4c5b-91a2-534b8023aadf"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="228" y="699" width="152" height="103" uuid="d4aefe44-1795-4285-9570-28570f470ac1"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="343" y="699" width="152" height="103" uuid="542e65a0-b8c4-4f21-bac6-f0a580f9d669"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="202" y="0" width="117" height="79" uuid="87cc051a-c932-4cc3-b080-192cf9de9490"/>
+				<textElement>
+					<font size="48" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UPUI]]></text>
+			</staticText>
+			<image>
+				<reportElement x="399" y="0" width="148" height="79" uuid="c36402af-da91-4a2b-82bc-ac16b90c1da7"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\iconoSystema\\logoSistema.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="52" splitType="Stretch">
+			<staticText>
+				<reportElement x="3" y="9" width="199" height="33" uuid="73502488-787d-4284-aba0-42e1fcb47cf5"/>
+				<textElement>
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Actividad registradas:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="329" y="9" width="218" height="40" uuid="8611077c-fbb4-4741-806e-a7d76f72b49d"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="421" y="9" width="100" height="20" uuid="a30550e9-dc38-43db-9d88-328b5dcc4426"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="47" splitType="Stretch">
+			<rectangle>
+				<reportElement x="12" y="3" width="530" height="41" backcolor="#CCCCFF" uuid="4fd4e65c-0f5a-4ecb-83e0-b36963c370de"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="23" y="13" width="100" height="20" uuid="943f5a9b-f2c2-4875-bafa-b17122182843"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[ID:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="145" y="13" width="100" height="20" uuid="9a4b9e65-8b62-4a41-8362-6f3614934382"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Fecha de actividad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="258" y="13" width="141" height="20" uuid="3e24e8a3-24ee-4411-b7d6-b9bf9e1175d1"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Descripcion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="421" y="13" width="100" height="20" uuid="996ad4c6-da00-4d77-8fe5-54bf6ec25640"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Curso]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="45" splitType="Stretch">
+			<rectangle>
+				<reportElement x="12" y="5" width="530" height="36" backcolor="#FFFFFF" uuid="ba67e228-2819-46d6-9f63-79ecc8044d53"/>
+			</rectangle>
+			<textField>
+				<reportElement x="23" y="13" width="100" height="20" uuid="22265c2b-b753-412c-ba0b-83a20faebe7c"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{actividades_Id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="145" y="13" width="100" height="20" uuid="72aa9144-8faa-4412-880d-437a4e412d26"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{actividades_fechaActividad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="258" y="13" width="151" height="20" uuid="a53821b5-996c-47c5-a755-3f2922d74f08"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{actividades_descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="421" y="13" width="100" height="20" uuid="b5d022b8-7333-4ed3-86ab-5813095a5608"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{cursos_nombreCurso}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="447" y="21" width="100" height="20" uuid="8a79b053-cd36-4248-94df-089b8a8cac96"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

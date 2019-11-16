@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="../../Estilos/AnimacionesCss/animate.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.min.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/scroll.css" ></link>
+    </h:head>
+    <h:body>
+        <f:view>
+            <p:confirmDialog class="animated flipInX" style="background: white" global="true" showEffect="fade">
+                <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes btn" icon="ui-icon-check"/>
+                <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no btn" icon="ui-icon-close"/>
+            </p:confirmDialog>
+            
+            <div class="container animated fadeIn">
+                <h:form>
+                    <div class="container" >
+                        <p:dataTable value="#{ComedorControlador.ConsultarTodos()}"
+                                     var="item"
+                                     id="comedorTbales"
+                                     >
+                            <f:facet name="header">
+                                <p:outputPanel>
+                                    <h1>Selecciona un comedor</h1>
+                                </p:outputPanel>
+                            </f:facet>
+
+                            <p:column style="border: none" >
+
+                                <f:facet name="header">
+                                    <h:outputText value="COMEDORES DISPONIBLES"/>
+                                </f:facet>
+                                <div class="contenedor" style="width: 100%; background: white; margin: auto; margin-top: 0" >
+                                    <br/>
+                                    <div style="width: 100%; height: 20%; text-align: center">
+                                        <h3>#{item.localidad.nombreLocalidad}</h3>                            
+                                    </div>
+                                    <br/>
+                                    <div style="width: 100%; height: 60%; text-align: center">
+                                        <p:graphicImage style="width: 50%; height: auto" title="#{item.localidad.nombreLocalidad}" url="../../Estilos/img/Comedores/#{item.localidad.nombreLocalidad}.jpg" ></p:graphicImage>
+                                    </div>
+                                    <br/>
+                                    <div style="width: 100%; height: 20%; text-align: center">
+                                        <p:commandButton class="btn" action="#{BeneficiadoControlador.RegistrarBeneficiado(item)}" value="Registrar beneficiado">
+                                            <p:confirm header="Confirmacion" message="Estas seguro que deceas registrar un beneficiado a este comedor?" icon="ui-icon-alert" />
+                                        </p:commandButton>
+                                    </div>
+                                    <br/>
+                                </div>
+                                <br/>
+                            </p:column>
+                        </p:dataTable>
+                    </div>
+                </h:form>
+            </div>
+        </f:view>
+        <script src="../../Estilos/materialize/js/materialize.js" ></script>
+        <script src="../../Estilos/materialize/js/materialize.min.js" ></script>
+    </h:body>
+</html>
+

@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4446d3a1-b740-450e-a049-9ae2030346f7">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="TipoDeDonacion" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     donacion.`fechaDeEntrada` AS donacion_fechaDeEntrada,
+     donacion.`cantidadDonada` AS donacion_cantidadDonada,
+     donacion.`bienDonado` AS donacion_bienDonado,
+     donante.`nombre` AS donante_nombre,
+     donante.`telefono` AS donante_telefono,
+     donante.`apellido` AS donante_apellido,
+     tipo_donacion.`tipoDonacion` AS tipo_donacion_tipoDonacion,
+     tipotelefono.`tipoDeTelefono` AS tipotelefono_tipoDeTelefono
+FROM
+     `donante` donante INNER JOIN `donacion` donacion ON donante.`Id` = donacion.`donante`
+     INNER JOIN `tipo_donacion` tipo_donacion ON donacion.`tipoDonacion` = tipo_donacion.`Id`
+     INNER JOIN `tipotelefono` tipotelefono ON donante.`tipoTelefono` = tipotelefono.`id`
+WHERE tipo_donacion.`tipoDonacion`=$P{TipoDeDonacion}]]>
+	</queryString>
+	<field name="donacion_fechaDeEntrada" class="java.sql.Date"/>
+	<field name="donacion_cantidadDonada" class="java.lang.Integer"/>
+	<field name="donacion_bienDonado" class="java.lang.String"/>
+	<field name="donante_nombre" class="java.lang.String"/>
+	<field name="donante_telefono" class="java.lang.String"/>
+	<field name="donante_apellido" class="java.lang.String"/>
+	<field name="tipo_donacion_tipoDonacion" class="java.lang.String"/>
+	<field name="tipotelefono_tipoDeTelefono" class="java.lang.String"/>
+	<background>
+		<band height="802" splitType="Stretch">
+			<image>
+				<reportElement x="1" y="10" width="152" height="103" forecolor="#FFFFFF" uuid="faaa431b-fe08-43b9-b19e-4da2633a1065"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="165" y="10" width="152" height="103" uuid="81238eb1-496f-462a-9476-3fdf7320a2cf"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="299" y="10" width="152" height="103" uuid="973c0938-eb20-4fd8-86a9-0fbd883c09e9"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="228" y="85" width="152" height="103" uuid="7abfb155-9925-4030-b3ac-2c0def574e77"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="436" y="10" width="152" height="103" uuid="b61d1900-febd-4b38-9fe0-644942f35d7e"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="299" y="624" width="152" height="103" uuid="2c3745bc-9a20-4c42-aa9d-f0b62fc937f3"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="436" y="624" width="152" height="103" uuid="540b4fef-589e-4652-be5e-6e37162d5231"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="1" y="624" width="152" height="103" forecolor="#FFFFFF" uuid="0e04de95-152d-4224-a74a-8defd9206696"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="165" y="624" width="152" height="103" uuid="7e25d52a-55f8-4c66-b873-a1195ac322e4"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image isUsingCache="true">
+				<reportElement x="88" y="691" width="152" height="103" uuid="8c33d80b-48e2-46e1-b961-ffa1ac1e0a9f"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="228" y="699" width="152" height="103" uuid="b840939f-0ef6-48a0-9e26-8bf81bffb4ee"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="343" y="699" width="152" height="103" uuid="e731c198-71a7-4515-b424-c42135e7e879"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="196" y="0" width="173" height="79" uuid="a69be05b-6a6b-4950-8dfa-ad73e9591e47"/>
+				<textElement textAlignment="Center">
+					<font size="58"/>
+				</textElement>
+				<text><![CDATA[UPUI]]></text>
+			</staticText>
+			<image>
+				<reportElement x="407" y="0" width="148" height="79" uuid="3a88cf70-6054-4007-ab19-a2d9c3c31fc2"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\iconoSystema\\logoSistema.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="53" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="11" width="218" height="40" uuid="a85a7419-7ba4-4e8d-8a03-0795733c98cd"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte filtrado por tipo de donacion:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="328" y="11" width="218" height="40" uuid="6740cacd-7b65-48af-82a7-43579d2b86b5"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="407" y="13" width="100" height="20" uuid="a555a85a-9a46-4d2d-8620-bc205b710d7e"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="84" y="31" width="69" height="20" uuid="30f55a7a-43d5-4652-bd0c-80e69e2b6e96"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tipo_donacion_tipoDonacion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="10" width="552" height="41" backcolor="#CCCCFF" uuid="0e567f1a-c36d-41cf-a650-90b48e065e1b"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="22" width="69" height="20" uuid="56cb71a1-f608-49bd-8284-ef6a0064ab6a"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Fecha de donacion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="69" y="22" width="69" height="20" uuid="760c5294-7020-425b-8990-8b7b355e27b7"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="138" y="22" width="69" height="20" uuid="ea94262e-d97a-45cd-bdfc-8dc88c81db40"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Bien donado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="207" y="22" width="69" height="20" uuid="2f1cdf47-57b6-4e0e-bca1-e7ab0b86c805"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Nombre donante]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="276" y="22" width="69" height="20" uuid="042e55ff-f5f5-402e-ac0c-a582f6ab251a"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Telefono donante]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="345" y="22" width="69" height="20" uuid="d6fd6e00-3d4e-4925-adc4-d61045280cfd"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Apellido donante]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="414" y="23" width="69" height="20" uuid="70dfa866-c45b-4be0-8010-079f7af09f1d"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Tipo donacion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="483" y="22" width="69" height="20" uuid="caf099dd-9623-423c-9a46-fd08ded721b9"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Tipo telefono]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="41" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="3" width="552" height="36" backcolor="#FFFFFF" uuid="9853a3da-23a3-45fc-84dc-59546bbbd4a9"/>
+			</rectangle>
+			<textField>
+				<reportElement x="0" y="12" width="69" height="20" uuid="8299c053-fef1-4891-91c7-3ef3ac9c7d36"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{donacion_fechaDeEntrada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="69" y="12" width="69" height="20" uuid="aef05e1a-2aaf-47f5-b566-151ad5c14545"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{donacion_cantidadDonada}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="138" y="12" width="69" height="20" uuid="9d8548dd-5c01-4a80-85a1-90ae9eda3aa7"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{donacion_bienDonado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="207" y="12" width="69" height="20" uuid="d5712f3e-a119-4371-a63a-83bd37ef37d2"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{donante_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="276" y="12" width="69" height="20" uuid="c356758e-ad23-42e0-ab0a-d1ca36925087"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{donante_telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="345" y="12" width="69" height="20" uuid="1b1711a4-8c95-4082-80c2-042c5f7a68e4"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{donante_apellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="414" y="12" width="69" height="20" uuid="aedfbd84-1353-4780-9827-bdb23d07f8fb"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tipo_donacion_tipoDonacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="483" y="12" width="69" height="20" uuid="df794b6a-47d6-439e-96e6-314b1922134d"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tipotelefono_tipoDeTelefono}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="444" y="18" width="100" height="20" uuid="4794588f-bccf-4e68-94ae-0edcc61bddea"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

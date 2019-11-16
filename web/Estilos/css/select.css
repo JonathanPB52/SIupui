@@ -1,0 +1,21 @@
+.select{
+    width: auto;
+    height: auto;
+    background: white;
+    text-align: center;
+    border-bottom: 2px solid black;
+}
+.select:hover{
+    border-bottom: 2px solid #26a69a; 
+}
+.ui-selectonemenu-items.ui-selectonemenu-list.ui-widget-content.ui-widget.ui-corner-all.ui-helper-reset{
+    background: white;
+}
+.ui-selectonemenu-item.ui-selectonemenu-list-item.ui-corner-all:hover{
+    background: rgba(0,0,0,0.1);
+}
+.ui-selectonemenu-filter-container{
+    width: 100%;
+    background: white;
+}
+

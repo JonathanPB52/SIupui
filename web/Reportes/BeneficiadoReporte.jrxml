@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e953ce8a-080f-4f8e-b1d8-afd193fca174">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="comedor" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     beneficiados.`nombre` AS beneficiados_nombre,
+     beneficiados.`segundoNombre` AS beneficiados_segundoNombre,
+     beneficiados.`apellido` AS beneficiados_apellido,
+     beneficiados.`segundoApellido` AS beneficiados_segundoApellido,
+     beneficiados.`telefono` AS beneficiados_telefono,
+     beneficiados.`documento` AS beneficiados_documento,
+     tipo_documento.`nombre` AS tipo_documento_nombre,
+     tipotelefono.`tipoDeTelefono` AS tipotelefono_tipoDeTelefono,
+     localidad.`nombreLocalidad` AS localidad_nombreLocalidad,
+     beneficiados.`idcomedor` AS beneficiados_idcomedor
+FROM
+     `tipo_documento` tipo_documento INNER JOIN `beneficiados` beneficiados ON tipo_documento.`Id` = beneficiados.`tipo_documento`
+     INNER JOIN `tipotelefono` tipotelefono ON beneficiados.`tipoTelefono` = tipotelefono.`id`
+     INNER JOIN `localidad` localidad ON beneficiados.`localidad` = localidad.`id`
+
+WHERE beneficiados.`idcomedor`=$P{comedor}]]>
+	</queryString>
+	<field name="beneficiados_nombre" class="java.lang.String"/>
+	<field name="beneficiados_segundoNombre" class="java.lang.String"/>
+	<field name="beneficiados_apellido" class="java.lang.String"/>
+	<field name="beneficiados_segundoApellido" class="java.lang.String"/>
+	<field name="beneficiados_telefono" class="java.lang.String"/>
+	<field name="beneficiados_documento" class="java.lang.String"/>
+	<field name="tipo_documento_nombre" class="java.lang.String"/>
+	<field name="tipotelefono_tipoDeTelefono" class="java.lang.String"/>
+	<field name="localidad_nombreLocalidad" class="java.lang.String"/>
+	<field name="beneficiados_idcomedor" class="java.lang.Integer"/>
+	<background>
+		<band height="802" splitType="Stretch">
+			<image>
+				<reportElement x="1" y="10" width="152" height="103" forecolor="#FFFFFF" uuid="a63078fd-d367-414c-b594-0cae22bda67d"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="165" y="10" width="152" height="103" uuid="4f9c2bef-d7c0-46a6-b62a-4d20550b5d12"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="299" y="10" width="152" height="103" uuid="fa8f80f0-326f-4e54-8d5e-48da7cf08a22"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="228" y="85" width="152" height="103" uuid="4d9445de-8b1b-40e1-866c-bdc59d155ff9"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="436" y="10" width="152" height="103" uuid="988d5cfa-41bc-403e-8ead-2588be0e45c9"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="299" y="623" width="152" height="103" uuid="9907dbe1-6d09-40cb-a9f7-397d48f13939"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="436" y="623" width="152" height="103" uuid="7c37ea4c-5e77-418a-993e-49d0706f7cac"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="1" y="623" width="152" height="103" forecolor="#FFFFFF" uuid="8ae5cfd0-84cb-4c6c-966f-15ea2b58cab8"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="165" y="623" width="152" height="103" uuid="eb5378cb-f7a4-428f-8fa4-104e479df6a0"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image isUsingCache="true">
+				<reportElement x="88" y="690" width="152" height="103" uuid="82c815b7-318d-414c-963a-98579f31fe04"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="228" y="698" width="152" height="103" uuid="23fef836-b826-4991-bb73-2371578ffbbc"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="343" y="698" width="152" height="103" uuid="322d296a-7125-4995-b605-db50d51fe84d"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<title>
+		<band height="81" splitType="Stretch">
+			<staticText>
+				<reportElement x="187" y="0" width="173" height="79" uuid="a4bac3aa-bc19-497c-911e-0ea74ceb7cfb"/>
+				<textElement textAlignment="Center">
+					<font size="58"/>
+				</textElement>
+				<text><![CDATA[UPUI]]></text>
+			</staticText>
+			<image>
+				<reportElement x="406" y="0" width="148" height="79" uuid="b2736e46-8c0c-468c-b2de-2a887c65fcef"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\iconoSystema\\logoSistema.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="68" splitType="Stretch">
+			<staticText>
+				<reportElement x="320" y="12" width="218" height="40" uuid="0deefb83-d311-473f-9305-408f95b07378"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="372" y="16" width="100" height="20" uuid="5c95dcba-0021-4daf-9479-9a47b6eca002"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="11" y="12" width="156" height="40" uuid="52bad92b-aa86-467b-8e5e-bbd2239d96fc"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte filtrado por localidades:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="105" y="36" width="100" height="20" uuid="948ab0d7-cffc-439e-97b0-42fb79bbe126"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{localidad_nombreLocalidad}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="69" splitType="Stretch">
+			<rectangle>
+				<reportElement x="5" y="20" width="546" height="41" backcolor="#CCCCFF" uuid="93164518-77e9-49c2-87d2-732496986cdd"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="10" y="31" width="100" height="20" uuid="2f7d5d35-5190-4b39-9098-b753e4b2afa0"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Nombres]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="117" y="31" width="100" height="20" uuid="7e4760b5-3b19-413e-841b-6f4aa2187c92"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Apellidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="225" y="31" width="100" height="20" uuid="8f4687d1-25df-49fe-8037-0eabfe18a5e6"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Documento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="336" y="31" width="100" height="20" uuid="ae05917d-0978-4aad-a1c2-e4e1d08326a0"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Tipo de telefono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="446" y="31" width="100" height="20" uuid="58e58c67-d0bb-45ae-851f-51f4a42d4a9e"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Comedor]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="96" splitType="Stretch">
+			<rectangle>
+				<reportElement x="4" y="14" width="547" height="58" uuid="21bcdbd1-0d44-457b-8f27-113b3116a601"/>
+			</rectangle>
+			<textField>
+				<reportElement x="229" y="22" width="100" height="20" uuid="a80751c3-4850-440a-865d-af47ce5cf4b9"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tipo_documento_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="229" y="42" width="100" height="20" uuid="c5912667-579b-47b1-998e-e204dddc26c6"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{beneficiados_documento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="5" y="20" width="100" height="20" uuid="15fb6ae8-b547-4f12-b4bf-d7bd3088a826"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{beneficiados_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="119" y="42" width="100" height="20" uuid="c471247d-6c9b-4e76-abf2-2e89ea1e6622"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{beneficiados_segundoApellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="5" y="40" width="100" height="20" uuid="e3c09bea-138b-4c89-8136-f0d0b3ccb7b2"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{beneficiados_segundoNombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="119" y="22" width="100" height="20" uuid="73817387-2bf5-4b7d-ac5a-0412a32a56e6"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{beneficiados_apellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="341" y="45" width="100" height="20" uuid="3d095e3b-b151-4bc1-8878-bd7d038e72b2"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{beneficiados_telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="451" y="25" width="100" height="20" uuid="2393359e-8a1c-4175-9ae3-4fd2a33f11e8"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{localidad_nombreLocalidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="341" y="25" width="100" height="20" uuid="1b31b16d-9abb-440b-95ad-4528685c033a"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{tipotelefono_tipoDeTelefono}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

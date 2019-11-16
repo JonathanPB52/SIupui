@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="../../icomoon/style.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/scroll.css"></link>
+        <link rel="stylesheet" href="../../Estilos/AnimacionesCss/animate.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.min.css"></link>
+    </h:head>
+    <h:body>
+        <p:growl autoUpdate="true" />
+        <div class="container">
+            <div class="row">
+                <h:form class="col s12">
+                    <div class="row card-panel">
+                        <div class="col s12">
+                            <div style="text-align: center" class="row card-panel">
+                                <h1>Registrar donacion</h1>
+                            </div>
+                        </div>
+                        <div class="col s12">
+                            <div style="text-align: center" class="row card-panel">
+                                <h5>Para registrar una donacion puedes seleccionar alguna de estas dos opciones, si deceas registrar una nueva donacion con su respectivo donante selecciona nueva donacion,<br></br> si lo que deceas es registrar una nueva donacion asignandole un donante ya registrado selecciona asignar donante</h5>
+                            </div>
+                        </div>
+                        <h:form class="col 12">
+                            <div style="text-align: center; width: 50%; margin: auto">
+                                <p:commandButton class="btn" action="crearDonante.xhtml" value=" Registrar una nueva donacion" >
+                                    <p:confirm  header="Confirmacion" message="Estas seguro que deceas registrar un nuevo donante?" icon="ui-icon-alert" />
+                                </p:commandButton>
+                            </div>
+                            <br></br>
+
+                            <div style="text-align: center; width: 50%; margin: auto">
+                                <p:commandButton class="btn" action="crearDonacion.xhtml" value="Asignar donante" >
+                                    <p:confirm  header="Confirmacion" message="Estas seguro que deceas asignar un donante?" icon="ui-icon-alert" />
+                                </p:commandButton>
+                            </div>
+                        </h:form>
+                        <p:confirmDialog class="animated flipInX" style="background: white" global="true" showEffect="fade" >
+                            <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes btn" icon="ui-icon-check"/>
+                            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no btn" icon="ui-icon-close"/>
+                        </p:confirmDialog>
+                    </div>
+                </h:form>
+            </div>
+
+
+        </div>
+        <script src="../../Estilos/materialize/js/materialize.js" ></script>
+        <script src="../../Estilos/materialize/js/materialize.min.js" ></script>
+    </h:body>
+</html>
+
+
+

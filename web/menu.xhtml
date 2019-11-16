@@ -1,0 +1,118 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>UPUI</title>
+        <link rel="stylesheet" href="icomoon/style.css"></link>
+        <link rel="stylesheet" href="Estilos/css/menu.css"></link>
+        <link rel="stylesheet" href="Estilos/css/scroll.css"></link>
+        <f:event type="preRenderView" listener="#{validarLogin.verificarSession()}" />
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
+    </h:head>
+    <h:body>
+
+
+
+        <f:view locale="#{sessionController.languageSelected}">
+
+            <nav>
+                <ul>
+                    <li>
+                        <a id="desple" >#{msjMenuDinamic.QueDeceas}</a>
+                        <ul>
+                            <c:forEach items="#{UsuariosControlador.rol.permisoList}" var="permiso">
+                                <c:if test="#{empty permiso.permisoPadre}" >
+                                    <li>
+                                        <a style="text-decoration: none" href="#" title="#{permiso.nombre}">
+                                            <c:if test="#{sessionController.defaultLanguage == sessionController.spanishLanguague}">
+                                                #{permiso.nombre}
+                                            </c:if>
+                                            <c:if test="#{!(sessionController.defaultLanguage == sessionController.spanishLanguague)}">
+                                                #{permiso.nombreEn}
+                                            </c:if>
+                                        </a>
+                                        <ul>
+                                            <c:forEach items="#{permiso.permisoList}" var="permisol">
+                                                <c:forEach items="#{UsuariosControlador.rol.permisoList}" var="permisol1">
+                                                    <c:if test="#{permisol1.id eq permisol.id}">
+                                                        <li>
+                                                            <c:if test="#{sessionController.defaultLanguage == sessionController.spanishLanguague}">
+                                                                <a style="text-decoration: none" href="#{permisol.url}" target="iframe">#{permisol.nombre}</a>
+                                                            </c:if>
+                                                            <c:if test="#{!(sessionController.defaultLanguage == sessionController.spanishLanguague)}">
+                                                                <a style="text-decoration: none" href="#{permisol.url}" target="iframe">#{permisol.nombreEn}</a>
+                                                            </c:if>
+
+                                                        </li>
+                                                    </c:if>
+                                                </c:forEach>
+                                            </c:forEach>
+                                        </ul>
+                                    </li>
+                                </c:if>
+                            </c:forEach>
+                        </ul>
+                    </li>
+                    <li><a style="text-decoration: none"  href="instructivo/INSTRUCTIVO.pdf" title="Instruciones" target="iframe">#{msjMenuDinamic.Ayuda}</a></li>
+                    <li>
+                        <a id="menuIdioma" >#{msjMenuDinamic.CambiarIdioma}</a>
+                        <ul>
+                            <li style="width: auto">
+                                <h:form id="form-logout" prependId="false">
+                                    <c:forEach items="#{sessionController.supportLanguages}" var="idioma">
+                                        <h:commandLink title="#{idioma}" style="width: auto; height: auto" actionListener="#{sessionController.cambiarIdioma(idioma)}"><img width="50" height="25" src="Archivos/img/#{idioma}.png"></img></h:commandLink>
+                                    </c:forEach>
+                                </h:form>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li title="#{msjMenuDinamic.Salir}" style="float: right"><a style="text-decoration: none" href="#modal1" data-toggle="modal" >#{msjMenuDinamic.Salir}</a>
+
+                    </li>
+                </ul>
+            </nav>
+            <div style="width: 98%; height: 90%; margin-top: 0px; margin: auto;">
+                <iframe name="iframe" width="100%" height="100%" src="UsuarioLogueado.xhtml" style="background: white; border: none;" >
+
+                </iframe>
+            </div>
+
+            <div class="modal fade" id="modal1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header" >
+                            <h3>#{msjMenuDinamic.ModalTitulo}</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+
+                        </div>
+                        <div class="modal-body">
+                            <p>#{msjMenuDinamic.DialogoModal}</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">#{msjMenuDinamic.ModalCancelar}</button>
+                            <button type="button" class="btn btn-primary" ><a style="background: none; text-decoration: none; color: white;" href="index.xhtml">#{msjMenuDinamic.ModalAceptar}</a></button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </f:view>
+
+
+
+
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    </h:body>
+</html>
+

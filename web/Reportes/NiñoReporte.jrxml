@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="662ab740-8eae-4226-9023-a5f7952d56d6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="NombreCurso" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     ninos.`Id` AS ninos_Id,
+     ninos.`nombreNino` AS ninos_nombreNino,
+     ninos.`apellidoNino` AS ninos_apellidoNino,
+     ninos.`segundoApellido` AS ninos_segundoApellido,
+     ninos.`documento` AS ninos_documento,
+     edad_nino.`edad` AS edad_nino_edad,
+     afiliacion_medica.`sigla` AS afiliacion_medica_sigla,
+     cursos.`nombreCurso` AS cursos_nombreCurso
+FROM
+     `edad_nino` edad_nino INNER JOIN `ninos` ninos ON edad_nino.`Id` = ninos.`edadNino`
+     INNER JOIN `afiliacion_medica` afiliacion_medica ON ninos.`afiliacionMedicaNino` = afiliacion_medica.`Id`
+     INNER JOIN `cursos` cursos ON ninos.`idCurso` = cursos.`Id`
+
+WHERE cursos.`nombreCurso`=$P{NombreCurso}]]>
+	</queryString>
+	<field name="ninos_Id" class="java.lang.Integer"/>
+	<field name="ninos_nombreNino" class="java.lang.String"/>
+	<field name="ninos_apellidoNino" class="java.lang.String"/>
+	<field name="ninos_segundoApellido" class="java.lang.String"/>
+	<field name="ninos_documento" class="java.lang.String"/>
+	<field name="edad_nino_edad" class="java.lang.String"/>
+	<field name="afiliacion_medica_sigla" class="java.lang.String"/>
+	<field name="cursos_nombreCurso" class="java.lang.String"/>
+	<background>
+		<band height="802" splitType="Stretch">
+			<image>
+				<reportElement x="1" y="10" width="152" height="103" forecolor="#FFFFFF" uuid="1b4c5ae9-2f32-4477-921d-0e84a5994347"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="165" y="10" width="152" height="103" uuid="af8e2188-0b73-4790-8d72-8ea5610b15dc"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="299" y="10" width="152" height="103" uuid="9a0e5744-b64a-4a90-94fa-a89421224197"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="228" y="85" width="152" height="103" uuid="fcfffea7-7e0b-4f61-90a7-d2ae53aa9b28"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="436" y="10" width="152" height="103" uuid="73271d07-e468-4fad-9683-f178e163f848"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="299" y="623" width="152" height="103" uuid="55ddb815-5031-4a4d-8c6a-b0cf62a540ce"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="436" y="623" width="152" height="103" uuid="ab7275f2-b8b4-4df1-9732-e538445e35d6"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="1" y="623" width="152" height="103" forecolor="#FFFFFF" uuid="42ad22c7-c09e-482f-85f6-8e694389c1d3"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="165" y="623" width="152" height="103" uuid="66e8816c-4366-484c-a3f8-ecd7648bdde4"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image isUsingCache="true">
+				<reportElement x="88" y="690" width="152" height="103" uuid="c3081ad8-c00a-43bc-93d1-87282f0345c3"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="228" y="698" width="152" height="103" uuid="1552230e-adc4-486e-9a34-8aa35ee8d204"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="343" y="698" width="152" height="103" uuid="d1f65406-a5be-409c-bc0c-2b8a342f46d9"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\FondoReporte\\nube.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="167" y="0" width="111" height="79" uuid="d92ab4ff-a01d-4c4a-961f-3127d8e0c2d2"/>
+				<textElement>
+					<font size="42" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UPUI]]></text>
+			</staticText>
+			<image>
+				<reportElement x="405" y="0" width="148" height="79" uuid="9318c96a-72f1-420a-9e42-35f498c71859"/>
+				<imageExpression><![CDATA["C:\\Users\\Jonathan\\Desktop\\RespaldoUPUI\\SIupui\\web\\Estilos\\img\\iconoSystema\\logoSistema.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="44" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="202" height="34" uuid="ab3778df-f176-4862-b839-96d8e759c5f0"/>
+				<textElement>
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Niños Registrados:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="334" y="1" width="218" height="40" uuid="750771b3-1d07-4728-aae1-489fdeca3a4a"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="405" y="1" width="100" height="20" uuid="80233fa6-78e6-474f-b637-8d4149d6a92f"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="54" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="7" width="553" height="41" backcolor="#CCCCFF" uuid="ccbd9055-5731-406b-89e8-70a895875838"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="17" width="34" height="20" uuid="9d16b4ae-073b-4769-b92a-69f37110852e"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="44" y="17" width="79" height="20" uuid="553e5573-de43-44ae-90f9-c74a07c4f2cf"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="133" y="17" width="79" height="20" uuid="fc572451-950e-4df5-bceb-c8c8e3c6d86d"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="221" y="17" width="79" height="20" uuid="6b98e830-6d49-4661-b5dc-7812ac90e3ee"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Segundo apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="307" y="17" width="79" height="20" uuid="e8fa514a-58ad-41d7-8e46-0e7dc8900603"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Documento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="395" y="17" width="79" height="20" uuid="cea02e61-7aa5-4e36-b791-d188bb6dbd95"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Edad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="474" y="17" width="79" height="20" uuid="59e68f31-e905-424e-a115-c9f1410f84e9"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Afiliacion medica]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="57" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="11" width="553" height="36" backcolor="#FFFFFF" uuid="b0c9815b-b40f-451d-80a3-11fc28bd070c"/>
+			</rectangle>
+			<textField>
+				<reportElement x="0" y="18" width="34" height="20" uuid="12094352-bc0c-4648-9747-a6bd34ab28ad"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{ninos_Id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="44" y="18" width="79" height="20" uuid="ffd3fa0a-8d29-4d37-97cb-a7c45fcff0e5"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{ninos_nombreNino}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="133" y="18" width="79" height="20" uuid="f4f54199-d35c-4551-9377-002b0d75a3a5"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{ninos_apellidoNino}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="221" y="18" width="79" height="20" uuid="083df86a-1a58-47a8-a6e6-bc0206ce1b74"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{ninos_segundoApellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="307" y="18" width="79" height="20" uuid="3d53e805-bfe5-4217-b062-e66e474625c7"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{ninos_documento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="395" y="18" width="79" height="20" uuid="cbb85906-3f7e-4f9d-aebc-98a7f51c9fe1"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{edad_nino_edad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="474" y="18" width="79" height="20" uuid="fb730ad8-8f6c-48ab-a482-fb2dd66971a7"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{afiliacion_medica_sigla}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="453" y="34" width="100" height="20" uuid="d66c424b-a10b-4b9b-8989-f963102fd2b8"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="../../Estilos/css/scroll.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/select.css"></link>
+        <link rel="stylesheet" href="../../Estilos/AnimacionesCss/animate.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.min.css"></link>
+    </h:head>
+    <h:body>
+        <f:view>
+
+            <p:growl autoUpdate="true" showDetail="false" />
+            <div class="section container" >
+                <div class="row">
+
+                    <h:form class="col s12" enctype="multipart/form-data">
+                        <div class="row card-panel">
+                            <div class="col s12">
+                                <div class="row card-panel">
+                                    <h3>Registro de venta</h3>
+                                </div>
+                            </div>
+                            <div class="col s12">
+                                <div class="row card-panel">
+                                    <p:outputLabel value="FechaDeVenta:" />
+                                    <p:inputText class="datepicker" placeholder="Fecha de venta" id="fechaDeVenta" value="#{ReciclajeControlador.reciclaje.fechaDeVenta}" title="FechaDeVenta" required="true" requiredMessage="Es necesario que pongas una fecha.">
+                                        <f:convertDateTime pattern="mm-dd-yyyy"/>
+                                    </p:inputText>
+                                </div>
+                            </div>
+
+
+                            <div class="col s12">
+                                <div class="row card-panel">
+                                    <div class="col s12">
+                                        <p:outputLabel value="Peso venta:" />
+                                        <p:selectOneMenu style="width: 100%" styleClass="select" id="PesoVenta" value="#{ReciclajeControlador.pesoVenta.id}" >
+                                            <!-- TODO: update below reference to list of available items-->
+                                            <f:selectItems value="#{PesoVentaControlador.ConsultarTodos()}" var="pv" itemValue="#{pv.id}" itemLabel="#{pv.peso}" />
+                                        </p:selectOneMenu>
+                                    </div>
+                                    <div class="col s12">
+                                        <p:outputLabel value="TipoDeMaterial:" />
+                                        <p:selectOneMenu style="width: 100%" styleClass="select" id="tipoDeMaterial" value="#{ReciclajeControlador.tipoDeMaterial.id}" required="true" requiredMessage="Desbes de seleccionar el tipo de material.">
+                                            <!-- TODO: update below reference to list of available items-->
+                                            <f:selectItems value="#{TipoMaterialControlador.ConsultarTodos()}" var="tmaterial" itemValue="#{tmaterial.id}" itemLabel="#{tmaterial.tipoMaterial}" />
+                                        </p:selectOneMenu>
+                                    </div>
+                                    <div class="col s12">
+                                        <p:outputLabel value="Encargado:" />
+                                        <p:selectOneMenu style="width: 100%" styleClass="select" id="encargado" value="#{ReciclajeControlador.usuario.id}" filter="true" filterMatchMode="">
+                                            <!-- TODO: update below reference to list of available items-->
+                                            <f:selectItems value="#{UsuariosControlador.ConsultarTodos()}" var="us" itemValue="#{us.id}" itemLabel="#{us.documento}" />
+                                        </p:selectOneMenu>
+                                    </div>
+
+                                    <div class="col s6">
+                                        <p:outputLabel value="Cantidad:"/>
+                                        <p:inputText placeholder="Peso en unidad de medida" type="number" id="cantidad" value="#{ReciclajeControlador.reciclaje.cantidad}" title="Cantidad" required="true" requiredMessage="Necesitas poner una cantidad."/>
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="Valor:" />
+                                        <p:inputText placeholder="Volar de venta" type="number" id="valor" value="#{ReciclajeControlador.reciclaje.valor}" title="Valor" required="true" requiredMessage="Necesitas poner un valor."/>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="input-field col s12 file-field">
+                                        <div class="btn">
+                                            <samp>Seleccione un archivo</samp>
+                                            <h:inputFile pt:id="archivoInput" onchange="validarExtencion()" value="#{ReciclajeControlador.file1}" required="true" requiredMessage="Es necesario que cargas una evidencia."/>
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <h:inputText class="file-path" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h:commandButton class="btn" value="Registrar" action="#{ReciclajeControlador.Registrar()}" ></h:commandButton>
+                        </div>
+                    </h:form>
+                </div>
+            </div>
+        </f:view>
+        <script src="../../Estilos/materialize/js/materialize.js" ></script>
+        <script src="../../Estilos/materialize/js/materialize.min.js" ></script>
+        <script>
+            const Calendar = document.querySelector('.datepicker');
+            M.Datepicker.init(Calendar, {
+                format: 'mm-dd-yyyy',
+                i18n: {
+                    months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                    monthsShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                    weekdays: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Juevez', 'Viernes', 'Sábado'],
+                    weekdaysShort: ['Dom', 'Lun', 'Mar', 'Mir', 'Juv', 'Vie', 'Sab'],
+                    weekdaysAbbrev: ['D', 'L', 'M', 'X', 'J', 'V', 'S']
+                }
+            });
+        </script>
+        <script type="text/javascript">
+            function validarExtencion()
+            {
+                var archivoInput = document.getElementById('archivoInput');
+                var archivoRuta = archivoInput.value;
+                var extencion = /(.png|.PNG|.jpg|.JPG)$/i;
+                
+                if (!extencion.exec(archivoRuta))
+                {
+                    alert('Asegurate de seleccionar una imagen');
+                    archivoInput.value='';
+                    return false;
+                }
+                else
+                {
+                    archivoInput.value=archivoInput;
+                    return true;
+                }
+            }
+        </script>
+    </h:body>
+</html>
+

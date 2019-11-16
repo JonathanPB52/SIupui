@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      template="/WEB-INF/template.xhtml">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="../../Estilos/AnimacionesCss/animate.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.min.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/scroll.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/select.css"></link>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"></link>
+    </h:head>
+    <h:body>
+        <f:view>
+
+            <div class="section container" >
+                <div class="row">
+                    <h:form class="col s12">
+                        <div class="row card-panel">
+                            <div class="col s12">
+                                <h3>Curso seleccionado</h3>
+                            </div>
+                            <div class="col s6">
+                                <p:outputLabel value="Nombre curso:"/>
+                            </div>
+                            <div class="col s6">
+                                <p:selectOneMenu styleClass="select" style="width: 90%;" value="#{ActividadControlador.curso.id}" filter="true" filterMatchMode="contains">
+                                    <f:selectItems value="#{CursoControlador.ConsultarTodos()}" var="cur" itemValue="#{cur.id}" itemLabel="#{cur.nombreCurso}" />
+                                </p:selectOneMenu>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="row card-panel">
+                            <div class="col s12" >
+                                <h3>Informacion de actividad</h3>
+                            </div>
+                            <div class="col s6">
+                                <h:outputLabel value="Fecha de la actividad:" />
+                            </div>
+                            <div class="col s6">
+                                <h:inputText id="fecha" class="datepicker" value="#{ActividadControlador.actividad.fechaActividad}" title="FechaActividad" required="true" requiredMessage="The FechaActividad field is required.">
+                                    <f:convertDateTime pattern="dd-MM-yyyy"/>
+                                </h:inputText>
+                            </div>
+                            <div class="col s6">
+                                <h:outputLabel value="Descripcion:" for="descripcion" />
+                            </div>
+                            <div class="col s6">
+                                <h:inputTextarea class="materialize-textarea" rows="4" cols="30" id="descripcion" value="#{ActividadControlador.actividad.descripcion}" title="Descripcion" required="true" requiredMessage="The Descripcion field is required."/>
+
+                            </div>
+                            <div class="col s12">
+                                <p:commandButton class="btn" value="Actualizar" action="#{ActividadControlador.Actualizar()}">
+                                    <p:confirm  header="Confirmación" message="Estas seguro que deseas Registrar estos datos?" icon="ui-icon-alert" />
+                                </p:commandButton>
+                                <p:commandButton class="btn" value="Volver" action="listarYeditar.xhtml">
+                                    <p:confirm  header="Confirmación" message="Estas seguro que deseas salir sin registrar estos datos?" icon="ui-icon-alert" />
+                                </p:commandButton>
+                            </div>
+
+                            <p:confirmDialog style="background: white" class="animated flipInX" global="true" showEffect="fade">
+                                <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes btn" icon="ui-icon-check"/>
+                                <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no btn" icon="ui-icon-close"/>
+                            </p:confirmDialog>
+                        </div>
+                    </h:form>
+
+
+                </div>
+            </div>
+        </f:view>
+        <script src="../../Estilos/materialize/js/materialize.js" ></script>
+        <script src="../../Estilos/materialize/js/materialize.min.js" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script>
+            const Calendar = document.querySelector('.datepicker');
+            M.Datepicker.init(Calendar, {
+                format: 'dd-mm-yyyy',
+                i18n: {
+                    months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                    monthsShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                    weekdays: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Juevez', 'Viernes', 'Sábado'],
+                    weekdaysShort: ['Dom','Lun','Mar','Mir','Juv','Vie','Sab'],
+                    weekdaysAbbrev: ['D','L','M','X','J','V','S']
+                }
+            });
+        </script>
+    </h:body>
+</html>
+

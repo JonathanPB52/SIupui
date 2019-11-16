@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="../../icomoon/style.css"></link>
+        <link rel="stylesheet" href="../../Estilos/AnimacionesCss/animate.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.min.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/scroll.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/select.css"></link>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"></link>
+    </h:head>
+    <h:body>
+        <f:view>
+            <p:growl autoUpdate="true" showDetail="false" />
+            <div class="section container" >
+                <div class="row">
+
+                    <h:form class="col s12">
+                        <div class="row card-panel">
+                            <div class="col s12">
+                                <h2>Informacion comedor</h2>
+                            </div>
+                            <div class="col s6">
+                                <p:outputLabel value="ID comedor:"/>
+                            </div>
+                            <div class="col s6">
+                                <p:outputLabel value="#{NovedadControlador.comedor.id}" ></p:outputLabel>
+                            </div>
+                            <div class="col s6">
+                                <p:outputLabel value="Capaciad de comedor:"/>
+                            </div>
+                            <div class="col s6">
+                                <p:outputLabel value="#{NovedadControlador.comedor.capacidad}" ></p:outputLabel>
+                            </div>
+                            <div class="col s6">
+                                <p:outputLabel value="Localidad comedor:"/>
+                            </div>
+                            <div class="col s6">
+                                <p:outputLabel value="#{NovedadControlador.comedor.localidad.nombreLocalidad}" ></p:outputLabel>
+                            </div>
+                        </div>
+                    </h:form>
+
+
+                    <h:form class="col s12" enctype="multipart/form-data">
+                        <div class="row card-panel">
+                            <div class="col s6">
+                                <p:outputLabel value="FechaDeNovedad:" />
+                                <p:inputText id="fechaDeNovedad" class="datepicker" value="#{NovedadControlador.novedad.fechaDeNovedad}" title="FechaDeNovedad" required="true" requiredMessage="Es necesario la fecha de la novedad">
+                                    <f:convertDateTime pattern="yyyy-mm-dd" />
+                                </p:inputText>
+                            </div>
+                            <div class="col s6">
+                                <p:outputLabel value="Descripcion:"/>
+                                <p:inputTextarea class="materialize-textarea" placeholder="Descripcion" id="descripcion" value="#{NovedadControlador.novedad.descripcion}" title="Descripcion" required="true" requiredMessage="Es necesario que pongas una descripcion"/>
+                            </div>
+                            <div class="input-field col s12 file-field">
+                                <div class="btn">
+                                    <samp>Seleccione un archivo</samp>
+                                    <h:inputFile pt:id="archivoInput" onchange="validarExtencion()" value="#{NovedadControlador.file1}" required="true" requiredMessage="Es necesario que cargas una evidencia."/>
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <h:inputText class="file-path" />
+                                </div>
+                            </div>
+                            <h:commandButton class="btn" value="Registrar" action="#{NovedadControlador.Registrar()}" ></h:commandButton>
+                        </div>
+                        
+
+                    </h:form>
+                    <div class="fixed-action-btn">
+                        <a href="vistaComedores.xhtml" title="volver" class="btn-floating btn-large icon-undo2"></a>
+                    </div>
+                </div>
+            </div>
+        </f:view>
+        <script src="../../Estilos/materialize/js/materialize.js" ></script>
+        <script src="../../Estilos/materialize/js/materialize.min.js" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script>
+            const Calendar = document.querySelector('.datepicker');
+            M.Datepicker.init(Calendar, {
+                format: 'yyyy-mm-dd',
+                i18n: {
+                    months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                    monthsShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                    weekdays: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Juevez', 'Viernes', 'Sábado'],
+                    weekdaysShort: ['Dom','Lun','Mar','Mir','Juv','Vie','Sab'],
+                    weekdaysAbbrev: ['D','L','M','X','J','V','S']
+                }
+            });
+        </script>
+        <script type="text/javascript">
+            function validarExtencion()
+            {
+                var archivoInput = document.getElementById('archivoInput');
+                var archivoRuta = archivoInput.value;
+                var extencion = /(.png|.PNG|.jpg|.JPG)$/i;
+                
+                if (!extencion.exec(archivoRuta))
+                {
+                    alert('Asegurate de seleccionar una imagen');
+                    archivoInput.value='';
+                    return false;
+                }
+                else
+                {
+                    archivoInput.value=archivoInput;
+                    return true;
+                }
+            }
+        </script>
+    </h:body>
+</html>
+
+
+
+

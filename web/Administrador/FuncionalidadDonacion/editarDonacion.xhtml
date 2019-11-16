@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="../../Estilos/css/scroll.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/alertas.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/donacionForm.css"></link>
+        
+    </h:head>
+    <h:body style="background-image: url(../../Estilos/img/FondoMenu.jpg)">
+
+        <script type="text/javascript">
+            PrimeFaces.locales['es'] = {
+                closeText: 'Schließen',
+                prevText: 'Mes anterio',
+                nextText: 'Siguiente mes',
+                monthNames: ['Enero', 'Fecrero', 'Marzo', 'Anbril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                monthNamesShort: ['Enero', 'Fecrero', 'Marzo', 'Anbril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                dayNames: ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'],
+                dayNamesShort: ['Son', 'Mon', 'Die', 'Mit', 'Don', 'Fre', 'Sam'],
+                dayNamesMin: ['D', 'L', 'M', 'X ', 'J', 'V ', 'S'],
+                weekHeader: 'Woche',
+                FirstDay: 1,
+                isRTL: false,
+                showMonthAfterYear: false,
+                yearSuffix: '',
+                timeOnlyTitle: 'Nur Zeit',
+                timeText: 'Zeit',
+                hourText: 'Stunde',
+                minuteText: 'Minute',
+                secondText: 'Sekunde',
+                currentText: 'Aktuelles Datum',
+                ampm: false,
+                month: 'Monat',
+                week: 'Woche',
+                day: 'Tag',
+                allDayText: 'Ganzer Tag'
+            };
+        </script>
+
+
+
+
+        <f:view locale="#{sessionController.languageSelected}">
+
+            <p:growl autoUpdate="true" showDetail="false" />
+
+            
+            
+            <h:form enctype="multipart/form-data" >
+
+
+                <p:fieldset legend="Informacion donacion ID: #{DonacionControlador.donacion.id}" style="background: rgba(0,0,0,0.3); border: none">
+
+                    <p:fieldset legend="Datos donacion" style="background: #7CB89D">
+                        <h:panelGrid columns="2" style="background: #7CB89D">
+                            
+                            <p:outputLabel value="#{msjcrearDonacion.FechaDeEntrada}" />
+
+                            <p:calendar placeholder="Dia/Mes/Año" required="true" pattern="dd-MM-yyyy" mask="true"   locale="es" value="#{DonacionControlador.donacion.fechaDeEntrada}" requiredMessage="Es necesario que pongas una fecha de ingreso"/>
+
+                            <p:outputLabel value="#{msjcrearDonacion.CantidadDonada}"/>
+                            <p:inputText placeholder="Cantidad donanda" type="number" id="cantidadDonada" value="#{DonacionControlador.donacion.cantidadDonada}" title="CantidadDonada" required="true" requiredMessage="Se necesita poner una cantidad"/>
+                            <p:outputLabel value="#{msjcrearDonacion.BienDonado}" />
+                            <p:inputText placeholder="Bien donado" id="bienDonado" value="#{DonacionControlador.donacion.bienDonado}" title="BienDonado" required="true" requiredMessage="Es necesario que registres el nombre del bien donado"/>
+                            
+                            
+                            </h:panelGrid>
+                    </p:fieldset>
+
+                    <br/>
+
+                    <p:fieldset legend="Informacion personal" style="background: #7CB89D" >
+                        <h:panelGrid columns="2" style="background: #7CB89D">
+                            
+                            
+                            
+                            <p:outputLabel value="#{msjcrearDonacion.EvidenciaDonada}"/>
+                            <h:inputFile id="evidenciaDonacion" value="#{DonacionControlador.file1}" title="EvidenciaDonacion" required="true" requiredMessage="Es necesario que subas una evidencia de la donacion" />
+                            <p:outputLabel value="#{msjcrearDonacion.TipoDonacion}" for="tipoDonacion" />
+                            <p:selectOneMenu id="tipoDonacion" value="#{DonacionControlador.tipoDonacion.id}" required="true" requiredMessage="The TipoDonacion field is required.">
+                                <!-- TODO: update below reference to list of available items-->
+                                <f:selectItems value="#{TipoDonacionControlador.ConsultarTodos()}" var="tdon" itemValue="#{tdon.id}" itemLabel="#{tdon.tipoDonacion}"/>
+
+                            </p:selectOneMenu>
+                            <p:outputLabel value="#{msjcrearDonacion.Donante}" />
+                            <p:selectOneMenu value="#{DonacionControlador.donante.id}" required="true" requiredMessage="The Donante field is required." filter="true">
+                                <!-- TODO: update below reference to list of available items-->
+                                <f:selectItems class="item" value="#{DonanteControlador.ConsultarTodos()}" var="dont" itemValue="#{dont.id}" itemLabel="#{dont.telefono}"/>
+                            </p:selectOneMenu>
+                            
+
+                        </h:panelGrid>
+                    </p:fieldset>
+                    <br/>
+                    
+                    <h:commandButton value="#{msjcrearDonacion.titulo}" action="#{DonacionControlador.Actualizar()}"></h:commandButton>
+                    <h:commandButton value="Volver" action="listarYeditarDonacion"></h:commandButton>
+                    
+                </p:fieldset>
+
+            </h:form>
+                
+           
+
+
+        </f:view>
+
+
+
+    </h:body>
+</html>
+

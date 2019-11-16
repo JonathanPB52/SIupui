@@ -1,0 +1,116 @@
+.Contenido{
+    width: 70%;
+    height: auto;
+    background: rgba(0,0,0,0.1);
+    margin: 2% 0% 0% 15%;
+    
+}
+.ui-fieldset-legend{
+    text-align: center;
+}
+.ui-inputfield.ui-inputtext.ui-widget.ui-state-default.ui-corner-all{
+    font-family: cursive;
+}
+.ui-datepicker-header.ui-widget-header.ui-helper-clearfix.ui-corner-all{
+    background: #7CB89D;
+}
+.ui-selectonemenu-label.ui-inputfield.ui-corner-all{
+    width: 150px;
+    height: auto;
+}
+div.ui-selectonemenu-items-wrapper{
+    width: 100%;
+    height: 200px;
+    
+}
+.ui-selectonemenu-filter-container{
+    width: 90%;
+    height: auto;
+    background: none;
+    margin-top: 10%;
+}
+
+div.ul.ui-selectonemenu-item.ui-selectonemenu-list-item.ui-corner-all{
+    width: auto;
+    margin-left: 0px;
+}
+
+div.ul.ui-selectonemenu-items.ui-selectonemenu-list.ui-widget-content.ui-widget.ui-corner-all.ui-helper-reset{
+    width: 100%;
+}
+div.ul.li.ui-selectonemenu-item.ui-selectonemenu-list-item.ui-corner-all.ui-state-highlight{
+    width: 100%;
+}
+
+
+.ui-datepicker-div.ui-datepicker.ui-widget.ui-widget-content.ui-helper-clearfix.ui-corner-all{
+    width: 400px;
+    height: 300px;
+    float: left;
+    margin-left: 0%;
+}
+
+.ui-selectonemenu-items.ui-selectonemenu-list.ui-widget-content.ui-widget.ui-corner-all.ui-helper-reset{
+    width: auto;
+    float: left;
+}
+
+.ui-datepicker-calendar{
+    background: white;
+}
+table{
+    width: 100%;
+}
+tr{
+    width: 100%;
+    text-align: left;
+}
+td{
+    
+    width: 50%;
+    height: 50%;
+    text-align: left;
+    color: black;
+}
+
+.ui-inputtext{
+    width: 100%;
+    margin-left: 5%;
+}
+.ui-widget{
+    
+    width: 80%;
+    margin-left: 10%;
+    background: rgba(0,0,0,0.0);
+    border: none;
+    border-radius: 1%;
+}
+.ui-selectonemenu-label{
+    width: 300px;
+}
+.ui-growl{
+    background: none;
+    width: 300px;
+    height: auto;
+}
+.boton{
+    margin: 5% 0% 0% 45%;
+}
+.ui-dialog-titlebar.ui-widget-header.ui-helper-clearfix.ui-corner-top{
+    background: #7CB89D;
+}
+.ui-dialog-content.ui-widget-content{
+    background: rgba(0,0,0,0.8);
+    color: white;
+}
+.ui-dialog-buttonpane.ui-dialog-footer.ui-widget-content.ui-helper-clearfix{
+    background: #7CB89D;
+    margin-top: 0%;
+    text-align: center;
+}
+
+
+
+
+
+

@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="../../Estilos/css/scroll.css"></link>
+        <link rel="stylesheet" href="../../icomoon/style.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/select.css"></link>
+        <link rel="stylesheet" href="../../Estilos/AnimacionesCss/animate.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.min.css"></link>
+    </h:head>
+    <h:body>
+        <f:view locale="#{sessionController.languageSelected}">
+            <h:form class="animated zoomIn">
+                <div>
+                    <div class="row">
+                        <div class="col s12">
+                            <p:dataTable id="tableUser" 
+                                         value="#{UsuariosControlador.ConsultarTodos()}" 
+                                         var="item"
+                                         widgetVar="Usuarios"
+                                         paginator="true" rows="4" 
+                                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                         rowsPerPageTemplate="4,8,12" 
+                                         currentPageReportTemplate="Pagina: {currentPage} de {totalPages}"
+                                         emptyMessage="Registro no encontrado">
+                                <f:facet name="header">
+                                    <p:outputPanel>
+                                        <h1>Usuario registrados</h1>
+                                    </p:outputPanel>
+                                </f:facet>
+
+                                <f:facet name="header" >
+                                    <p:outputPanel style="width: 100%; height: 80px; background: rgba(0,0,0,0.1)" >
+                                        <h:commandLink action="#{reporteUsuarioControlador.descargarUsuarios()}" title="Reporte PDF">
+                                            <h:graphicImage style="width: auto; height: 60px; float: left; margin-top: 10px;" url="../../Estilos/img/iconosExport/pdf.png"/>
+                                        </h:commandLink>
+                                    </p:outputPanel>
+                                </f:facet>
+
+                                <p:column width="auto" style="border: 0px" class="hoverable">
+                                    <f:facet name="header">
+                                        <h:outputText value="Nombres"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.nombre}"/>
+                                    <br/>
+                                    <h:outputText value="#{item.segundoNombre}"/>
+                                </p:column>
+                                <p:column width="auto" style="border: 0px" class="hoverable">
+                                    <f:facet name="header">
+                                        <h:outputText value="Apellidos"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.apellido}"/>
+                                    <br/>
+                                    <h:outputText value="#{item.segundoApellido}"/>
+                                </p:column>
+                                <p:column width="auto" style="border: 0px" class="hoverable" filterBy="#{item.documento}" filterMatchMode="contains">
+                                    <f:facet name="header">
+                                        <h:outputText value="Documento"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.documento}"/>
+                                </p:column>                  
+                                <p:column width="auto" style="border: 0px" class="hoverable" filterBy="#{item.correo}" filterMatchMode="contains">
+                                    <f:facet name="header">
+                                        <h:outputText value="Correo"/>
+                                    </f:facet>
+                                    <h:outputText value="#{item.correo}"/>
+                                </p:column>                  
+                                <p:column style="border: none;" class="hoverable" filterBy="#{item.idRol.nombre}" headerText="Tipo de usuario" filterMatchMode="contains">
+                                    <f:facet name="filter">
+                                        <p:selectOneMenu style="width: 90%" onchange="PF('Usuarios').filter()" styleClass="select" value="#{reporteUsuarioControlador.rol}">
+                                            <f:selectItem itemValue="" itemLabel="Todos los usuarios" />
+                                            <f:selectItems value="#{RolControlador.ConsultarTodos()}" var="RolU" itemValue="#{RolU.nombre}" itemLabel="#{RolU.nombre}" />
+                                        </p:selectOneMenu>
+                                    </f:facet>
+                                    <h:outputText value="#{item.idRol.nombre}" />
+                                </p:column>
+                                <p:column style="border: none; text-align: center" headerText="#{msjAlertasTablas.Opciones}">
+                                    <p:commandButton update="tableUser" title="#{msjAlertasTablas.Consultar}" class="icon-search btn" action="#{UsuariosControlador.ConsultarDOS(item)}" value="">
+                                        <p:confirm  header="#{msjAlertasTablas.Confirmacion}" message="#{msjAlertasTablas.AlertConsultar}" icon="ui-icon-alert" />
+                                    </p:commandButton>
+                                </p:column>
+                            </p:dataTable>
+                            <p:confirmDialog class="animated flipInX" style="background: white; text-align: center;" global="true" showEffect="fade">
+                                <p:commandButton value="#{msjAlertasTablas.si}" type="button" styleClass="ui-confirmdialog-yes btn" icon="ui-icon-check"/>
+                                <p:commandButton value="#{msjAlertasTablas.no}" type="button" styleClass="ui-confirmdialog-no btn" icon="ui-icon-close"/>
+                            </p:confirmDialog>
+                        </div>
+                    </div>
+                </div>
+            </h:form>
+        </f:view>
+        <script src="../../Estilos/materialize/js/materialize.js" ></script>
+        <script src="../../Estilos/materialize/js/materialize.min.js" ></script>
+    </h:body>
+</html>
+

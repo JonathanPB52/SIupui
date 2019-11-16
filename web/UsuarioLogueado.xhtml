@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="Estilos/css/scroll.css"></link>
+        <link rel="stylesheet" href="Estilos/AnimacionesCss/animate.css"></link>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
+    </h:head>
+    <h:body style="width: 100%; height: 100%;">
+        <f:view locale="#{sessionController.languageSelected}">
+            <div class="container">
+                <div class="animated bounceInDown" style="width: 100%; height: 10%; text-align: center;">
+                    <h1>Tipo de usuario: #{UsuariosControlador.usuarioLogueado.idRol.nombre}</h1>
+                </div>
+
+                <div class="animated bounceInLeft" style="float: left; width: 50%; height: auto;">
+
+                    <div style="width: 100%; height: 20%">
+                        <h2 style="text-align: center; margin-top: 20%;">#{msjUserlogueado.Hola} #{UsuariosControlador.usuarioLogueado.nombre}, #{msjUserlogueado.bienvenido}</h2>
+                    </div>
+                    <div style="width: 100%; height: 30%">
+                        <h2 style="text-align: center; margin-top: 10%;">#{msjUserlogueado.QueEsUpui}</h2>
+                    </div>
+                    <div style="width: 100%; height: 40%; margin-top: 10%;">
+                        <h3 style="text-align: center">#{msjUserlogueado.Contenido}</h3>
+                    </div>  
+
+                </div>
+
+                <div class="animated bounceInRight" style="float: left; width: 50%; height: auto;">
+
+                    <div style="width: 100%; height: 20%">
+                        <h2 style="text-align: center; margin-top: 20%;">Servicios</h2>
+                    </div>
+                    <div class="animated flip" style="width: 100%; height: 70%; margin-top: 10%;">
+                        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img width="100%" height="50%" style="display: block" src="Estilos/img/Comedores/cm1.jpg" alt="First slide"></img>
+                                </div>
+                                <div class="carousel-item">
+                                    <img width="100%" height="50%" style="display: block" src="Estilos/img/Comedores/Reci.jpg" alt="Second slide"></img>
+                                </div>
+                                <div class="carousel-item">
+                                    <img width="100%" height="50%" style="display: block" src="Estilos/img/Comedores/niños.jpg" alt="Third slide"></img>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </f:view>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    </h:body>
+</html>
+

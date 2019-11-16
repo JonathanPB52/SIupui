@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Registro acudiente</title>
+        <link rel="stylesheet" href="../../icomoon/style.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/scroll.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/select.css"></link>
+        <link rel="stylesheet" href="../../Estilos/AnimacionesCss/animate.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.min.css"></link>
+    </h:head>
+    <h:body>
+        <f:view locale="#{sessionController.languageSelected}">
+            <p:growl autoUpdate="true" showDetail="false" />
+
+            <div class="section container" >
+                <div class="row">
+                    <h:form class="col s12">
+                        <div class="row card-panel">
+                            <div class="col s12">
+                                <div class="row card-panel">
+                                    <h3>Informacion de acudiente</h3>
+                                </div>
+                            </div>
+                            <div class="col s12">
+                                <div class="row card-panel">
+                                    <div class="col s6">
+                                        <p:outputLabel value="#{msjFormularioAcudiente.nombre}"/>
+                                        <p:inputText disabled="true" value="#{ControladorAcudiente.acudiente.nombreAcudiente}" />
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="#{msjFormularioAcudiente.Snombre}" ></p:outputLabel>
+                                        <p:inputText disabled="true" value="#{ControladorAcudiente.acudiente.segundoNombre}" />
+
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="#{msjFormularioAcudiente.apellido}"/>
+                                        <p:inputText disabled="true" value="#{ControladorAcudiente.acudiente.apellidoAcudiente}" />
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="#{msjFormularioAcudiente.Sapellido}"/>
+                                        <p:inputText disabled="true" value="#{ControladorAcudiente.acudiente.segundoApellido}" />
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="#{msjFormularioAcudiente.Telefono}"/>
+                                        <p:inputText disabled="true" value="#{ControladorAcudiente.acudiente.telAcudiente}" />
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="#{msjFormularioAcudiente.Correo}"/>
+                                        <p:inputText disabled="true" value="#{ControladorAcudiente.acudiente.correoAcudiente}" />
+                                    </div>
+                                    <div class="col s12">
+                                        <p:outputLabel value="#{msjFormularioAcudiente.Ttelefono}"/>
+                                        <p:inputText disabled="true" value="#{ControladorAcudiente.acudiente.tipoTelefono.tipoDeTelefono}" />
+                                    </div>
+                                    <div class="col s12">
+                                        <p:outputLabel value="#{msjFormularioAcudiente.TipoDocumento}"/>
+                                        <p:inputText disabled="true" value="#{ControladorAcudiente.acudiente.tipoDocumento.nombre}" />
+                                    </div>
+                                    <div class="col s12">
+                                        <p:outputLabel value="#{msjFormularioAcudiente.Documento}"/>
+                                        <p:inputText disabled="true" value="#{ControladorAcudiente.acudiente.documento}" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </h:form>
+                    <div class="fixed-action-btn">
+                        <a href="listarYeditarAcudiente.xhtml" title="Volver" class="btn-floating btn-large icon-undo2"></a>
+                    </div>
+                </div>
+            </div>
+
+        </f:view>
+        <script src="../../Estilos/materialize/js/materialize.js" ></script>
+        <script src="../../Estilos/materialize/js/materialize.min.js" ></script>
+    </h:body>
+</html>
+
+

@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="../../icomoon/style.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/scroll.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/select.css"></link>
+        <link rel="stylesheet" href="../../Estilos/AnimacionesCss/animate.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.min.css"></link>
+    </h:head>
+    <h:body>
+        <f:view locale="#{sessionController.languageSelected}">
+            <p:growl autoUpdate="true" showDetail="false" />
+
+            <div class="section container" >
+                <div class="row">
+
+                    <h:form class="col s12">
+                        <div class="row card-panel">
+                            <div class="col s12">
+                                <div class="row card-panel">
+                                    <h3>Registro de niño</h3>
+                                </div>
+                            </div>
+                            <div class="col s12">
+                                <div class="row card-panel">
+                                    <div class="col s6">
+                                        <p:outputLabel value="#{msjFormularioNiño.Nombre}"/>
+                                        <p:inputText placeholder="#{msjFormularioNiño.Nombre}" a:maxlength="11" id="nombreNino" value="#{NiñoControlador.nino.nombreNino}" title="#{msjFormularioNiño.Nombre}" required="true" requiredMessage="El primer nombre es obligatorio."/>
+
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="#{msjFormularioNiño.Snombre}"/>
+                                        <p:inputText placeholder="#{msjFormularioNiño.Snombre}" a:maxlength="11" id="segundoNombre" value="#{NiñoControlador.nino.segundoNombre}" title="#{msjFormularioNiño.Snombre}" />
+
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="#{msjFormularioNiño.Apellido}"/>
+                                        <p:inputText placeholder="#{msjFormularioNiño.Apellido}" a:maxlength="11" id="apellidoNino" value="#{NiñoControlador.nino.apellidoNino}" title="#{msjFormularioNiño.Apellido}" required="true" requiredMessage="El primer apellido es obligatorio."/>
+
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="#{msjFormularioNiño.Sapellido}"/>
+                                        <p:inputText placeholder="#{msjFormularioNiño.Sapellido}" a:maxlength="11" id="segundoApellido" value="#{NiñoControlador.nino.segundoApellido}" title="#{msjFormularioNiño.Sapellido}" required="true" requiredMessage="El segundo apellido es obligatorio."/>
+
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="#{msjFormularioNiño.NumeroDocumento}"/>
+                                        <p:inputText placeholder="#{msjFormularioNiño.NumeroDocumento}" type="number" id="documento" value="#{NiñoControlador.nino.documento}" title="#{msjFormularioNiño.NumeroDocumento}" required="true" requiredMessage="El numero de documento es obligatorio para completar el registro" />
+
+                                    </div>
+                                    <div class="col s12">
+                                        <p:outputLabel value="#{msjFormularioNiño.Acudiente}"/>
+                                        <p:selectOneMenu styleClass="select" style="width: 100%"  id="acudienteNino" value="#{NiñoControlador.acudiente.id}" label="encrgado"
+                                                         filter="true" filterMatchMode="">
+                                            <!-- TODO: update below reference to list of available items-->
+                                            <f:selectItems value="#{AcudienteControlador.ConsultarTodos()}" var="acu" itemValue="#{acu.id}" itemLabel="#{acu.documento}" />
+                                        </p:selectOneMenu>
+                                    </div>
+                                    <div class="col s12">
+                                        <p:outputLabel value="#{msjFormularioNiño.Edad}"/>
+                                        <p:selectOneMenu styleClass="select" style="width: 100%" id="edadNino" value="#{NiñoControlador.edadNino.id}" required="false" requiredMessage="The EdadNino field is required.">
+                                            <!-- TODO: update below reference to list of available items-->
+                                            <f:selectItems value="#{EdadNinoControlador.ConsultarTodos()}" var="edad" itemValue="#{edad.id}" itemLabel="#{edad.edad}" />
+                                        </p:selectOneMenu>
+                                    </div>
+                                    <div class="col s12">
+                                        <p:outputLabel value="#{msjFormularioNiño.AfiliacionMEdica}"/>
+                                        <p:selectOneMenu styleClass="select" style="width: 100%" id="afiliacion" value="#{NiñoControlador.afiliacionMedica.id}" required="false" requiredMessage="The EdadNino field is required.">
+                                            <!-- TODO: update below reference to list of available items-->
+                                            <f:selectItems value="#{AfiliacionMedicaControlador.ConsultarTodos()}" var="afill" itemValue="#{afill.id}" itemLabel="#{afill.nombre}" />
+                                        </p:selectOneMenu>
+                                    </div>
+                                    <div class="col s12">
+                                        <p:outputLabel  value="#{msjFormularioNiño.SeleccioneCurso}"/>
+                                        <p:selectOneMenu styleClass="select" style="width: 100%" id="idCurso" value="#{NiñoControlador.curso.id}" required="false" requiredMessage="The IdCurso field is required.">
+                                            <!-- TODO: update below reference to list of available items-->
+                                            <f:selectItems value="#{CursoControlador.ConsultarTodos()}" var="curso" itemValue="#{curso.id}" itemLabel="#{curso.nombreCurso}" />
+                                        </p:selectOneMenu>
+
+
+                                    </div>
+                                </div>
+                                <div class="col s12">
+                                    <div class="row card-panel">
+                                        <p:commandButton class="btn" value="#{msjFormularioNiño.Registrar}" action="#{NiñoControlador.Registrar()}" >
+                                            <p:confirm  header="#{msjFormularioNiño.ConfirmTitulo}" message="#{msjFormularioNiño.ConfirmDialogo}" icon="ui-icon-alert" />
+                                        </p:commandButton>
+                                    </div>
+                                </div>
+                                <p:confirmDialog style="background: white" global="true" showEffect="fade">
+                                    <p:commandButton value="#{msjFormularioNiño.Si}" type="button" styleClass="ui-confirmdialog-yes btn" icon="ui-icon-check"/>
+                                    <p:commandButton value="#{msjFormularioNiño.No}" type="button" styleClass="ui-confirmdialog-no btn" icon="ui-icon-close"/>
+                                </p:confirmDialog>
+                            </div>
+                        </div>
+                    </h:form>
+                </div>
+            </div>
+        </f:view>
+        <script src="../../Estilos/materialize/js/materialize.js" ></script>
+        <script src="../../Estilos/materialize/js/materialize.min.js" ></script>
+    </h:body>
+</html>
+

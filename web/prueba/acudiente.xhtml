@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body style="background: #7CB89D">
+        <f:view>
+            
+            <p:growl autoUpdate="true" showDetail="true" />
+
+            <h:form>
+                <p:fieldset legend="Datos de acudiente a registrar" style="background: rgba(0,0,0,0.1); color: black">
+
+                    <p:fieldset legend="Nombres y apellidos" style="background: rgba(0,0,0,0.3); color: white">
+                        <h:panelGrid columns="2">
+                    <p:outputLabel value="NombreAcudiente:" for="nombreAcudiente" />
+                    <p:inputText id="nombreAcudiente" value="#{ControladorAcudiente.acudiente.nombreAcudiente}" title="NombreAcudiente" required="true" requiredMessage="The NombreAcudiente field is required."/>
+                    <p:outputLabel value="SegundoNombre:" for="segundoNombre" />
+                    <p:inputText id="segundoNombre" value="#{ControladorAcudiente.acudiente.segundoNombre}" title="SegundoNombre" />
+                    <p:outputLabel value="ApellidoAcudiente:" for="apellidoAcudiente" />
+                    <p:inputText id="apellidoAcudiente" value="#{ControladorAcudiente.acudiente.apellidoAcudiente}" title="ApellidoAcudiente" required="true" requiredMessage="The ApellidoAcudiente field is required."/>
+                    <p:outputLabel value="SegundoApellido:" for="segundoApellido" />
+                    
+                    
+                    
+                    <p:inputText id="segundoApellido" value="#{ControladorAcudiente.acudiente.segundoApellido}" title="SegundoApellido" required="true" requiredMessage="The SegundoApellido field is required."/>
+                    
+                    
+                    </h:panelGrid>
+                    </p:fieldset>
+                    
+                    <br/>
+
+                    <p:fieldset legend="Informacion personal" style="background: rgba(0,0,0,0.3); color: white">
+                        <h:panelGrid columns="2">
+                    
+                    <p:outputLabel value="TelAcudiente:" for="telAcudiente" />
+                    <p:inputText id="telAcudiente" value="#{ControladorAcudiente.acudiente.telAcudiente}" title="TelAcudiente" required="true" requiredMessage="The TelAcudiente field is required."/>
+                    <p:outputLabel value="Documento:" for="documento" />
+                    <p:inputText id="documento" value="#{ControladorAcudiente.acudiente.documento}" title="Documento" required="true" requiredMessage="The Documento field is required."/>
+                    <p:outputLabel value="CorreoAcudiente:" for="correoAcudiente" />
+                    <p:inputText id="correoAcudiente" value="#{ControladorAcudiente.acudiente.correoAcudiente}" title="CorreoAcudiente" />
+                    <p:outputLabel value="TipoDocumento:" for="tipoDocumento" />
+                    <p:selectOneMenu id="tipoDocumento" value="#{ControladorAcudiente.tipoDocumento.id}" required="true" requiredMessage="The TipoDocumento field is required.">
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{TipoDocumentoControlador.ConsultarTodos()}" var="TD" itemValue="#{TD.id}" itemLabel="#{TD.nombre}" />
+                    </p:selectOneMenu>
+                    <p:outputLabel value="TipoTelefono:" for="tipoTelefono" />
+                    <p:selectOneMenu id="tipoTelefono" value="#{ControladorAcudiente.tipoTelefonno.id}"  required="true" requiredMessage="The TipoTelefono field is required.">
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{TipoTelefonoControlador.ConsultarTodos()}" var="TT" itemValue="#{TT.id}" itemLabel="#{TT.tipoDeTelefono}" />
+                    </p:selectOneMenu>
+                    <p:outputLabel value="EmpleadoEncargado:" for="empleadoEncargado" />
+                    <p:selectOneMenu id="empleadoEncargado" value="#{ControladorAcudiente.usuario.id}"  >
+                        <!-- TODO: update below reference to list of available items-->
+                        <f:selectItems value="#{UsuariosControlador.ConsultarTodos()}" var="ENC" itemValue="#{ENC.id}" itemLabel="#{ENC.documento}" />
+                    </p:selectOneMenu>
+                    
+                    </h:panelGrid>
+                    </p:fieldset>
+                
+                    <br/>
+                    
+                    <p:commandButton action="#{ControladorAcudiente.Registrar()}" value="Registrar" />
+                </p:fieldset>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+

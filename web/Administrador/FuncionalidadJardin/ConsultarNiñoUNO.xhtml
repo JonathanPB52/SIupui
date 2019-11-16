@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="../../icomoon/style.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/scroll.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/select.css"></link>
+        <link rel="stylesheet" href="../../Estilos/AnimacionesCss/animate.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.min.css"></link>
+    </h:head>
+    <h:body>
+
+        <f:view locale="#{sessionController.languageSelected}">
+            <div class="section container" >
+                <div class="row">
+                    <h:form class="col s12">
+                        <div class="row card-panel">
+                            <div class="col s12">
+                                <div style="background: rgba(0,0,0,0.7);" class="row card-panel">
+                                    <h3 class="info-ninio">Informacion de niño</h3>
+                                </div>
+                            </div>
+                            <style>
+                                label, imput{
+                                    color: black;
+                                }
+                                .info-ninio{
+                                    color: white;
+                                }
+                            </style>
+                            <div class="col s12">
+                                <div class="row card-panel">
+                                    <div class="col s6">
+                                        <p:outputLabel value="Primer nombre"/>
+                                        <p:inputText disabled="true" value="#{NiñoControlador.nino.nombreNino}"/>
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="Segundo nombre"/>
+                                        <p:inputText disabled="true" value="#{NiñoControlador.nino.segundoNombre}"/>
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="Primer apellido"/>
+                                        <p:inputText disabled="true" value="#{NiñoControlador.nino.apellidoNino}" />
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="Segundo apellido"/>
+                                        <p:inputText disabled="true" value="#{NiñoControlador.nino.segundoApellido}"/>
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="Numero de documento"/>
+                                        <p:inputText disabled="true" value="#{NiñoControlador.nino.documento}" />
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="Edad niño"/>
+                                        <p:inputText disabled="true" value="#{NiñoControlador.nino.edadNino.edad}" />
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="Afiliacion medica"/>
+                                        <p:inputText disabled="true" value="#{NiñoControlador.nino.afiliacionMedicaNino.nombre}" />
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="Curso asignado"/>
+                                        <p:inputText disabled="true" value="#{NiñoControlador.nino.idCurso.nombreCurso}" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col s12">
+                                <div style="background: rgba(0,0,0,0.7);" class="row card-panel">
+                                    <h3 class="info-ninio" >Informacion de acudiente</h3>
+                                </div>
+                            </div>
+                            <div class="col s12">
+                                <div class="row card-panel">
+                                    <div class="col s6">
+                                        <p:outputLabel value="Nombre de acudiente"/>
+                                        <p:inputText disabled="true" value="#{NiñoControlador.nino.acudienteNino.nombreAcudiente}" />
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="Segundo nombre"/>
+                                        <p:inputText disabled="true" value="#{NiñoControlador.nino.acudienteNino.segundoNombre}" />
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="Apellido"/>
+                                        <p:inputText disabled="true" value="#{NiñoControlador.nino.acudienteNino.apellidoAcudiente}" />
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="Segundo apellido"/>
+                                        <p:inputText disabled="true" value="#{NiñoControlador.nino.acudienteNino.segundoApellido}" />
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="Tipo de telefono"/>
+                                        <p:inputText disabled="true" value="#{NiñoControlador.nino.acudienteNino.tipoTelefono.tipoDeTelefono}" />
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="Numero de telefono"/>
+                                        <p:inputText disabled="true" value="#{NiñoControlador.nino.acudienteNino.telAcudiente}" />
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="Tipo de documento"/>
+                                        <p:inputText disabled="true" value="#{NiñoControlador.nino.acudienteNino.tipoDocumento.nombre}" />
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="Numero de documento"/>
+                                        <p:inputText disabled="true" value="#{NiñoControlador.nino.acudienteNino.documento}" />
+                                    </div>
+                                    <div class="col s6">
+                                        <p:outputLabel value="Correo de acudiente"/>
+                                        <p:inputText disabled="true" value="#{NiñoControlador.nino.acudienteNino.correoAcudiente}" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </h:form>
+                    <div class="fixed-action-btn">
+                        <a href="listarNino.xhtml" title="Volver" class="btn-floating btn-large icon-undo2"></a>
+                    </div>
+                </div>
+            </div>
+        </f:view>
+        <script src="../../Estilos/materialize/js/materialize.js" ></script>
+        <script src="../../Estilos/materialize/js/materialize.min.js" ></script>
+    </h:body>
+</html>
+
+

@@ -1,0 +1,32 @@
+body{
+    background-image: url(../..//Estilos/img/FondoMenu.jpg);
+}
+.ui-datatable.ui-widget{
+    
+}
+.ui-datatable-header{
+    margin-top: 2%;
+    background: white;
+    color: black;
+    border-radius: 5px;
+}
+.ui-paginator{
+    background: white;
+    color: black;
+}
+
+input.botonReporte{
+    width: auto;
+    height: 32px;
+    border-radius: 5px;
+    background: rgba(255,255,255,0.8);
+}
+input.botonReporte:hover{
+    background: #4f4f4f;
+    color: white;
+    font-family: Arial,sans-serif;
+}
+span.ui-paginator-first.ui-state-default.ui-corner-all.ui-state-disabled::before{
+    content: none;
+}
+

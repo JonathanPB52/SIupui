@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="../../icomoon/style.css"></link>
+        <link rel="stylesheet" href="../../Estilos/AnimacionesCss/animate.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.css"></link>
+        <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.min.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/scroll.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/select.css"></link>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"></link>
+    </h:head>
+    <h:body>
+
+        <f:view>
+            <p:growl autoUpdate="true" />
+            <div class="section container" >
+                <div class="row">
+                    <h:form class="col s12">
+                        <div class="row card-panel">
+                            <h1>Informacion de registro</h1>
+
+                            <div class="col s6">
+                                <p:outputLabel value="Nombre:"/>
+                                <p:inputText disabled="true"  id="nombre" value="#{BeneficiadoControlador.beneficiado.nombre}" title="Nombre" required="true" requiredMessage="El primer nombre es obligatorio"/>
+
+                            </div>
+                            <div class="col s6">
+                                <p:outputLabel value="Segundo nombre:"/>
+                                <p:inputText disabled="true"  id="segundoNombre" value="#{BeneficiadoControlador.beneficiado.segundoNombre}" title="SegundoNombre" />
+
+                            </div>
+                            <div class="col s6">
+                                <p:outputLabel value="Apellido:"/>
+                                <p:inputText disabled="true"  id="apellido" value="#{BeneficiadoControlador.beneficiado.apellido}" title="Apellido" required="true" requiredMessage="Primer apellido requerido"/>
+
+                            </div>
+                            <div class="col s6">
+                                <p:outputLabel value="Segundo apellido:"/>
+                                <p:inputText disabled="true"  id="segundoApellido" value="#{BeneficiadoControlador.beneficiado.segundoApellido}" title="SegundoApellido" required="true" requiredMessage="Segundo apellido requerido"/>
+
+                            </div>
+                            <div class="col s6">
+                                <p:outputLabel value="Dirección:"/>
+                                <p:inputText disabled="true"  id="direccion" value="#{BeneficiadoControlador.beneficiado.direccion}" title="Direccion" required="true" requiredMessage="Direccion requerida"/>
+
+                            </div>
+                            <div class="col s6">
+                                <p:outputLabel value="Telefono:"/>
+                                <p:inputText disabled="true"  type="number" id="telefono" value="#{BeneficiadoControlador.beneficiado.telefono}" title="Telefono" required="true" requiredMessage="Numero de telefono requerido"/>
+
+                            </div>
+                            <div class="col s6">
+                                <p:outputLabel value="Documento:"/>
+                                <p:inputText disabled="true"  type="number" id="documento" value="#{BeneficiadoControlador.beneficiado.documento}" title="Documento" required="true" requiredMessage="Numero de documento"/>
+                            </div>
+
+                            <div class="col s6">
+                                <p:outputLabel value="Comador asignado:"/>
+                                <p:inputText disabled="true"  id="Comedor" value="#{BeneficiadoControlador.beneficiado.idcomedor.localidad.nombreLocalidad}" title="SegundoApellido" required="true" requiredMessage="Segundo apellido requerido"/>
+                            </div>
+                            <div class="col s6">
+                                <p:outputLabel value="Localidad:"/>
+                                <p:inputText disabled="true"  id="Licalidad" value="#{BeneficiadoControlador.beneficiado.localidad.nombreLocalidad}" title="Direccion" required="true" requiredMessage="Direccion requerida"/>
+
+                            </div>
+                            <div class="col s6">
+                                <p:outputLabel value="Tipo de documento:"/>
+                                <p:inputText disabled="true"  type="number" id="Tdocumento" value="#{BeneficiadoControlador.beneficiado.tipoDocumento.nombre}" title="Telefono" required="true" requiredMessage="Numero de telefono requerido"/>
+                            </div>
+                            <div class="col s6">
+                                <p:outputLabel value="Tipo de telefono:"/>
+                                <p:inputText disabled="true" id="Ttelefono" value="#{BeneficiadoControlador.beneficiado.tipoTelefono.tipoDeTelefono}" title="Documento" required="true" requiredMessage="Numero de documento"/>
+                            </div>
+
+                        </div>
+                    </h:form>
+                    <div class="fixed-action-btn">
+                        <a href="listar.xhtml" title="volver" class="btn-floating btn-large icon-undo2"></a>
+                    </div>
+                </div>
+            </div>
+        </f:view>
+        <script src="../../Estilos/materialize/js/materialize.js" ></script>
+        <script src="../../Estilos/materialize/js/materialize.min.js" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </h:body>
+</html>
+

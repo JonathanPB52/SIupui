@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <link rel="stylesheet" href="Estilos/css/login.css"></link>
+        <link rel="stylesheet" href="Estilos/css/scroll.css"></link>
+        <link rel="stylesheet" href="Estilos/AnimacionesCss/animate.css"></link>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
+                <title>Login</title>
+                </h:head>
+    
+                <h:body>
+                    <f:view locale="#{sessionController.languageSelected}">
+                    <div class="modal-dialog text-center animated zoomIn">
+                        <div class="col-sm-9 main-section">
+                            <div class="modal-content">
+                                <div class="user-img">
+                                    <img src="Estilos/img/User/user.png" alt=""></img>
+                                </div>
+                                <h:form class="was-validated">
+                                    <div class="form-group">
+                                       
+                                        <h:inputText class="form-control is-invalid" style="float: right" pt:type="number" pt:placeholder="#{msjlogin.Documento}" value="#{UsuariosControlador.usuario.documento}" required="false" /><br />
+                                    </div>
+                                    <div class="form-group">
+                                      
+                                        <h:inputText class="form-control is-invalid" style="float: right" pt:type="password" pt:placeholder="#{msjlogin.Contraseña}" value="#{UsuariosControlador.usuario.pass}" required="false" /><br />
+                                        
+                                    </div>
+                                    
+                                    <h:commandButton class="btn btn-primary btn-sm btn-block" action="#{UsuariosControlador.validarLogin()}" value="#{msjlogin.Ingresar}" />
+                                    <a type="submit" href="index.xhtml" class="btn btn-primary btn-sm btn-block">#{msjlogin.Volver}</a>
+
+                                </h:form>
+                            </div>
+                        </div>
+                    </div>
+                    </f:view> 
+                    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+                  
+                </h:body>
+                </html>
+
