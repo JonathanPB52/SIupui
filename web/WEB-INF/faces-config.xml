@@ -68,6 +68,9 @@
             <base-name>Idiomas.EnvioCorreo</base-name>
             <var>msjEnvioCorreo</var>
         </resource-bundle>
-        
+        <resource-bundle>
+            <base-name>Idiomas.TablaUsuarios</base-name>
+            <var>msjTUsuario</var>
+        </resource-bundle>
     </application>
 </faces-config>

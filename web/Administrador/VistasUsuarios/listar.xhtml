@@ -27,17 +27,17 @@
                                          paginator="true" rows="4" 
                                          paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                          rowsPerPageTemplate="4,8,12" 
-                                         currentPageReportTemplate="Pagina: {currentPage} de {totalPages}"
+                                         currentPageReportTemplate="#{msjTUsuario.pagina}: {currentPage} #{msjTUsuario.de} {totalPages}"
                                          emptyMessage="Registro no encontrado">
                                 <f:facet name="header">
                                     <p:outputPanel>
-                                        <h1>Usuario registrados</h1>
+                                        <h1>#{msjTUsuario.Titulo}</h1>
                                     </p:outputPanel>
                                 </f:facet>
 
                                 <f:facet name="header" >
                                     <p:outputPanel style="width: 100%; height: 80px; background: rgba(0,0,0,0.1)" >
-                                        <h:commandLink action="#{reporteUsuarioControlador.descargarUsuarios()}" title="Reporte PDF">
+                                        <h:commandLink action="#{reporteUsuarioControlador.descargarUsuarios()}" title="#{msjTUsuario.reporte}">
                                             <h:graphicImage style="width: auto; height: 60px; float: left; margin-top: 10px;" url="../../Estilos/img/iconosExport/pdf.png"/>
                                         </h:commandLink>
                                     </p:outputPanel>
@@ -45,7 +45,7 @@
 
                                 <p:column width="auto" style="border: 0px" class="hoverable">
                                     <f:facet name="header">
-                                        <h:outputText value="Nombres"/>
+                                        <h:outputText value="#{msjTUsuario.Nombres}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.nombre}"/>
                                     <br/>
@@ -53,7 +53,7 @@
                                 </p:column>
                                 <p:column width="auto" style="border: 0px" class="hoverable">
                                     <f:facet name="header">
-                                        <h:outputText value="Apellidos"/>
+                                        <h:outputText value="#{msjTUsuario.Apellidos}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.apellido}"/>
                                     <br/>
@@ -61,20 +61,20 @@
                                 </p:column>
                                 <p:column width="auto" style="border: 0px" class="hoverable" filterBy="#{item.documento}" filterMatchMode="contains">
                                     <f:facet name="header">
-                                        <h:outputText value="Documento"/>
+                                        <h:outputText value="#{msjTUsuario.Documento}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.documento}"/>
-                                </p:column>                  
+                                </p:column>
                                 <p:column width="auto" style="border: 0px" class="hoverable" filterBy="#{item.correo}" filterMatchMode="contains">
                                     <f:facet name="header">
-                                        <h:outputText value="Correo"/>
+                                        <h:outputText value="#{msjTUsuario.Correo}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.correo}"/>
                                 </p:column>                  
-                                <p:column style="border: none;" class="hoverable" filterBy="#{item.idRol.nombre}" headerText="Tipo de usuario" filterMatchMode="contains">
+                                <p:column style="border: none;" class="hoverable" filterBy="#{item.idRol.nombre}" headerText="#{msjTUsuario.tipoUser}" filterMatchMode="contains">
                                     <f:facet name="filter">
                                         <p:selectOneMenu style="width: 90%" onchange="PF('Usuarios').filter()" styleClass="select" value="#{reporteUsuarioControlador.rol}">
-                                            <f:selectItem itemValue="" itemLabel="Todos los usuarios" />
+                                            <f:selectItem itemValue="" itemLabel="#{msjTUsuario.TodosUsuarios}" />
                                             <f:selectItems value="#{RolControlador.ConsultarTodos()}" var="RolU" itemValue="#{RolU.nombre}" itemLabel="#{RolU.nombre}" />
                                         </p:selectOneMenu>
                                     </f:facet>
