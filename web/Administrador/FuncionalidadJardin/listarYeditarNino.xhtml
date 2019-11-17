@@ -27,7 +27,7 @@
                                          paginator="true" rows="4" 
                                          paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                          rowsPerPageTemplate="4,8,12" 
-                                         currentPageReportTemplate="#{msjListarYeditarNiño.Pagina}: {currentPage} #{msjListarYeditarNiño.De} {totalPages}" 
+                                         currentPageReportTemplate="#{msjTNiño.pagina}: {currentPage} #{msjTNiño.de} {totalPages}" 
                                          emptyMessage="Registro no encontrado">
                                 <f:facet name="header">
                                     <p:outputPanel>
@@ -36,15 +36,14 @@
                                 </f:facet>
                                 <f:facet name="header" >
                                     <p:outputPanel style="width: 100%; height: 80px; background: rgba(0,0,0,0.1)" >
-                                        <h:commandLink action="#{reporteNiñoControlador.descargarNiños()}" title="#{msjListarYeditarNiño.ReportePDF}">
+                                        <h:commandLink action="#{reporteNiñoControlador.descargarNiños()}" title="#{msjTNiño.reporte}">
                                             <h:graphicImage style="width: auto; height: 60px; float: left; margin-top: 10px;" url="../../Estilos/img/iconosExport/pdf.png"/>
                                         </h:commandLink>
                                     </p:outputPanel>
                                 </f:facet>
-
                                 <p:column width="auto" style="border: 0px" class="hoverable">
                                     <f:facet name="header">
-                                        <h:outputText value="Nombres"/>
+                                        <h:outputText value="#{msjTNiño.nombres}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.nombreNino}"/>
                                     <br/>
@@ -52,7 +51,7 @@
                                 </p:column>
                                 <p:column width="auto" style="border: 0px" class="hoverable">
                                     <f:facet name="header">
-                                        <h:outputText value="Apellidos"/>
+                                        <h:outputText value="#{msjTNiño.apellidos}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.apellidoNino}"/>
                                     <br/>
@@ -60,30 +59,30 @@
                                 </p:column>
                                 <p:column width="auto" style="border: 0px" class="hoverable" filterBy="#{item.documento}" filterMatchMode="contains">
                                     <f:facet name="header">
-                                        <h:outputText value="#{msjListarYeditarNiño.Documento}"/>
+                                        <h:outputText value="#{msjTNiño.documento}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.documento}"/>
                                 </p:column>
                                 <p:column width="auto" style="border: 0px" class="hoverable">
                                     <f:facet name="header">
-                                        <h:outputText value="#{msjListarYeditarNiño.Acudiente}"/>
+                                        <h:outputText value="#{msjTNiño.padre}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.acudienteNino.nombreAcudiente}"/><br/>
                                     <h:outputText value="#{item.acudienteNino.documento}"/><br/>
                                 </p:column>
-                                <p:column style="border: none;" class="hoverable" filterBy="#{item.afiliacionMedicaNino.nombre}" headerText="Afiliacion medica" filterMatchMode="contains">
+                                <p:column style="border: none;" class="hoverable" filterBy="#{item.afiliacionMedicaNino.nombre}" headerText="#{msjTNiño.afiliacion}" filterMatchMode="contains">
                                     <f:facet name="filter">
                                         <p:selectOneMenu style="width: 80%" onchange="PF('niño').filter()" styleClass="select">
-                                            <f:selectItem itemValue="" itemLabel="Todos las afiliaciones" />
+                                            <f:selectItem itemValue="" itemLabel="#{msjTNiño.todasAfiliaciones}" />
                                             <f:selectItems value="#{AfiliacionMedicaControlador.ConsultarTodos()}" var="Afiliacion" itemValue="#{Afiliacion.nombre}" itemLabel="#{Afiliacion.nombre}" />
                                         </p:selectOneMenu>
                                     </f:facet>
                                     <h:outputText value="#{item.afiliacionMedicaNino.nombre}" />
                                 </p:column>
-                                <p:column style="border: none;" class="hoverable" filterBy="#{item.idCurso.nombreCurso}" headerText="Curso" filterMatchMode="contains">
+                                <p:column style="border: none;" class="hoverable" filterBy="#{item.idCurso.nombreCurso}" headerText="#{msjTNiño.curso}" filterMatchMode="contains">
                                     <f:facet name="filter">
                                         <p:selectOneMenu style="width: 80%" onchange="PF('niño').filter()" styleClass="select" value="#{reporteNiñoControlador.nombreCurso}">
-                                            <f:selectItem itemValue="" itemLabel="Todos los cursos" />
+                                            <f:selectItem itemValue="" itemLabel="#{msjTNiño.todosCursos}" />
                                             <f:selectItems value="#{CursoControlador.ConsultarTodos()}" var="curso" itemValue="#{curso.nombreCurso}" itemLabel="#{curso.nombreCurso}" />
                                         </p:selectOneMenu>
                                     </f:facet>

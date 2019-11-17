@@ -18,22 +18,21 @@
                 <div>
                     <div class="row">
                         <div class="col s12">
-                            <p:dataTable class="table" id="comedorTbales" value="#{ComedorControlador.ConsultarTodos()}"
+                            <p:dataTable class="table" value="#{ComedorControlador.ConsultarTodos()}"
                                          var="item"
+                                         id="comedorTbales"
                                          paginator="true" rows="4" 
                                          paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                          rowsPerPageTemplate="4,8,12" 
-                                         currentPageReportTemplate="Pagina: {currentPage} de {totalPages}"
-                                         emptyMessage="Registro no encontrado">
+                                         currentPageReportTemplate="#{msjTComedor.pagina} {currentPage} #{msjTComedor.de} {totalPages}" >
                                 <f:facet name="header">
                                     <p:outputPanel>
-                                        <h1>Comedores registrados</h1>
+                                        <h1>#{msjTComedor.titulo}</h1>
                                     </p:outputPanel>
                                 </f:facet>
-
                                 <f:facet name="header" >
                                     <p:outputPanel style="width: 100%; height: 80px; background: rgba(0,0,0,0.1)" >
-                                        <h:commandLink title="Reporte PDF">
+                                        <h:commandLink title="#{msjTComedor.reporte}">
                                             <h:graphicImage style="width: auto; height: 60px; float: left; margin-top: 10px;" url="../../Estilos/img/iconosExport/pdf.png"/>
                                         </h:commandLink>
                                     </p:outputPanel>
@@ -41,13 +40,13 @@
 
                                 <p:column style="border: 0px" class="hoverable">
                                     <f:facet name="header">
-                                        <h:outputText value="Capacidad en puestos"/>
+                                        <h:outputText value="#{msjTComedor.capacidad}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.capacidad}"/>
                                 </p:column>
                                 <p:column style="border: 0px" class="hoverable">
                                     <f:facet name="header">
-                                        <h:outputText value="Lider comunitario"/>
+                                        <h:outputText value="#{msjTComedor.encargado}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.encargado.nombre}"/><br/>
                                     <h:outputText value="#{item.encargado.documento}"/><br/>
@@ -55,7 +54,7 @@
                                 </p:column>
                                 <p:column style="border: 0px" class="hoverable">
                                     <f:facet name="header">
-                                        <h:outputText value="Localidad"/>
+                                        <h:outputText value="#{msjTComedor.localidad}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.localidad.nombreLocalidad}"/>
                                 </p:column>
@@ -87,7 +86,7 @@
                 </div>
             </h:form>
             <div class="fixed-action-btn">
-                <a href="crear.xhtml" title="Crear comedor" class="btn-floating btn-large icon-plus"></a>
+                <a href="crear.xhtml" title="#{msjTComedor.crear}" class="btn-floating btn-large icon-plus"></a>
             </div>
         </f:view>
         <script src="../../Estilos/materialize/js/materialize.js" ></script>

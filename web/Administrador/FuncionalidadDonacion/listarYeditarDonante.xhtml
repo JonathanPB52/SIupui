@@ -25,16 +25,16 @@
                                          paginator="true" rows="4" 
                                          paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                          rowsPerPageTemplate="4,8,12" 
-                                         currentPageReportTemplate="Pagina: {currentPage} de {totalPages}"
+                                         currentPageReportTemplate="#{msjTDonante.pagina}: {currentPage} #{msjTDonante.de} {totalPages}"
                                          emptyMessage="Registro no encontrado">
                                 <f:facet name="header">
                                     <p:outputPanel>
-                                        <h1>Donantes registrados</h1>
+                                        <h1>#{msjTDonante.Titulo}</h1>
                                     </p:outputPanel>
                                 </f:facet>
                                 <f:facet name="header" >
                                     <p:outputPanel style="width: 100%; height: 80px; background: rgba(0,0,0,0.1)" >
-                                        <h:commandLink action="#{reporteDonanteControlador.descargarDonante()}" title="Reporte PDF">
+                                        <h:commandLink action="#{reporteDonanteControlador.descargarDonante()}" title="#{msjTDonante.reporte}">
                                             <h:graphicImage style="width: auto; height: 60px; float: left; margin-top: 10px;" url="../../Estilos/img/iconosExport/pdf.png"/>
                                         </h:commandLink>
                                     </p:outputPanel>
@@ -42,7 +42,7 @@
 
                                 <p:column style="border: 0px; text-align: center" class="hoverable">
                                     <f:facet name="header">
-                                        <h:outputText value="Nombres"/>
+                                        <h:outputText value="#{msjTDonante.nombres}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.nombre}"/>
                                     <br/>
@@ -51,28 +51,28 @@
 
                                 <p:column style="border: 0px; text-align: center" class="hoverable">
                                     <f:facet name="header">
-                                        <h:outputText value="Apellido"/>
+                                        <h:outputText value="#{msjTDonante.Apellido}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.apellido}"/>
                                 </p:column>
                                 <p:column style="border: 0px; text-align: center" class="hoverable">
                                     <f:facet name="header">
-                                        <h:outputText value="Segundo apellido"/>
+                                        <h:outputText value="#{msjTDonante.SegundoApe}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.segundoApellido}"/>
                                 </p:column>
                                 <p:column style="border: 0px; text-align: center" class="hoverable" filterBy="#{item.telefono}">
                                     <f:facet name="header">
-                                        <h:outputText value="Numero de telefono"/>
+                                        <h:outputText value="#{msjTDonante.numero}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.telefono}"/>
                                 </p:column>
-                                <p:column style="border: none; text-align: center" class="hoverable" filterBy="#{item.tipoTelefono.tipoDeTelefono}" headerText="Tipo de telefono" filterMatchMode="contains">
+                                <p:column style="border: none; text-align: center" class="hoverable" filterBy="#{item.tipoTelefono.tipoDeTelefono}" headerText="#{msjTDonante.telefonotipo}" filterMatchMode="contains">
                                     <f:facet name="filter">
                                         <p:selectOneMenu style="width: 90%" onchange="PF('donante').filter()" value="#{reporteDonanteControlador.tipoDeTelefono}" styleClass="select">
-                                            <f:selectItem itemValue="" itemLabel="Todos" />
-                                            <f:selectItem itemValue="Celular" itemLabel="Celular" />
-                                            <f:selectItem itemValue="Fijo" itemLabel="Fijo" />
+                                            <f:selectItem itemValue="" itemLabel="#{msjTDonante.todos}" />
+                                            <f:selectItem itemValue="Celular" itemLabel="#{msjTDonante.celular}" />
+                                            <f:selectItem itemValue="Fijo" itemLabel="#{msjTDonante.fijo}" />
                                         </p:selectOneMenu>
                                     </f:facet>
                                     <h:outputText value="#{item.tipoTelefono.tipoDeTelefono}" />

@@ -24,18 +24,18 @@
                                          paginator="true" rows="4" 
                                          paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                          rowsPerPageTemplate="4,8,12" 
-                                         currentPageReportTemplate="Pagina: {currentPage} de {totalPages}" 
+                                         currentPageReportTemplate="#{msjTCurso.pagina}: {currentPage} #{msjTCurso.de} {totalPages}" 
                                          emptyMessage="Registro no encontrado">
                                 <f:facet name="header">
                                     <p:outputPanel>
-                                        <h1>Cursos registrados</h1>
+                                        <h1>#{msjTCurso.titulo}</h1>
                                     </p:outputPanel>
                                 </f:facet>
 
 
                                 <f:facet name="header" >
                                     <p:outputPanel style="width: 100%; height: 80px; background: rgba(0,0,0,0.1)" >
-                                        <h:commandLink title="Reporte PDF">
+                                        <h:commandLink title="#{msjTCurso.reporte}">
                                             <h:graphicImage style="width: auto; height: 60px; float: left; margin-top: 10px;" url="../../Estilos/img/iconosExport/pdf.png"/>
                                         </h:commandLink>
                                     </p:outputPanel>
@@ -43,19 +43,19 @@
 
                                 <p:column style="border: 0px" class="hoverable">
                                     <f:facet name="header">
-                                        <h:outputText value="Capacidad de niños"/>
+                                        <h:outputText value="#{msjTCurso.cantidad}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.cantidadninos}"/>
                                 </p:column>
                                 <p:column style="border: 0px" class="hoverable">
                                     <f:facet name="header">
-                                        <h:outputText value="Nombre de curso"/>
+                                        <h:outputText value="#{msjTCurso.nombre}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.nombreCurso}"/>
                                 </p:column>
                                 <p:column style="border: 0px" class="hoverable">
                                     <f:facet name="header">
-                                        <h:outputText value="Instructor encargado"/>
+                                        <h:outputText value="#{msjTCurso.encargado}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.encargado.nombre} #{item.encargado.apellido}"/>
                                     <br/>
@@ -85,7 +85,7 @@
                 </div>
             </h:form>
             <div class="fixed-action-btn">
-                <a href="crear.xhtml" title="Crear curso" class="btn-floating btn-large icon-plus"></a>
+                <a href="crear.xhtml" title="#{msjTCurso.crear}" class="btn-floating btn-large icon-plus"></a>
             </div>
         </f:view>
         <script src="../../Estilos/materialize/js/materialize.js" ></script>

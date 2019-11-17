@@ -19,40 +19,40 @@
                 <div>
                     <div class="row">
                         <div class="col s12">
-                            <p:dataTable id="Actividad" value="#{ActividadControlador.ConsultarTodos()}"
+                            <p:dataTable class="table" id="Actividad" value="#{ActividadControlador.ConsultarTodos()}"
                                          var="item"
                                          widgetVar="actividad"
                                          paginator="true" rows="6" 
                                          paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                          rowsPerPageTemplate="5,10,15" 
-                                         currentPageReportTemplate="Pagina: {currentPage} de {totalPages}" >
+                                         currentPageReportTemplate="#{msjTActividad.pagina} {currentPage} #{msjTActividad.de} {totalPages}" >
                                 <f:facet name="header">
                                     <p:outputPanel>
-                                        <h1>Actividades registradas</h1>
+                                        <h1>#{msjTActividad.titulo}</h1>
                                     </p:outputPanel>
                                 </f:facet>
                                 <f:facet name="header" >
                                     <p:outputPanel style="width: 100%; height: 80px; background: rgba(0,0,0,0.1)" >
-                                        <h:commandLink action="#{reporteActividadControlador.descargarActividad()}" title="Reporte PDF">
+                                        <h:commandLink action="#{reporteActividadControlador.descargarActividad()}" title="#{msjTActividad.reporte}">
                                             <h:graphicImage style="width: auto; height: 60px; float: left; margin-top: 10px;" url="../../Estilos/img/iconosExport/pdf.png"/>
                                         </h:commandLink>
                                     </p:outputPanel>
                                 </f:facet>
-                                <p:column class="hoverable" filterBy="#{item.fechaActividad}" filterMatchMode="contains" style="border: 0px" headerText="Fecha de la actividad">
+                                <p:column class="hoverable" filterBy="#{item.fechaActividad}" filterMatchMode="contains" style="border: 0px" headerText="#{msjTActividad.fecha}">
                                     <h:outputText value="#{item.fechaActividad}">
                                         <f:convertDateTime pattern="dd/MM/yyyy" />
                                     </h:outputText>
                                 </p:column>
                                 <p:column filterBy="#{item.descripcion}" filterMatchMode="contains" filterPosition="bottom" class="hoverable" style="border: 0px">
                                     <f:facet name="header">
-                                        <h:outputText value="Descripcion"/>
+                                        <h:outputText value="#{msjTActividad.descripcion}"/>
                                     </f:facet>
                                     <h:outputText style="height: auto" value="#{item.descripcion}"/>
                                 </p:column>
-                                <p:column style="border: none;" class="hoverable" filterBy="#{item.curso.nombreCurso}" headerText="Curso" filterMatchMode="contains">
+                                <p:column style="border: none;" class="hoverable" filterBy="#{item.curso.nombreCurso}" headerText="#{msjTActividad.curso}" filterMatchMode="contains">
                                     <f:facet name="filter">
                                         <p:selectOneMenu style="width: 90%" onchange="PF('actividad').filter()" styleClass="select" value="#{reporteActividadControlador.nombreCurso}">
-                                            <f:selectItem itemValue="" itemLabel="Todos los cursos" />
+                                            <f:selectItem itemValue="" itemLabel="#{msjTActividad.todos}" />
                                             <f:selectItems value="#{CursoControlador.ConsultarTodos()}" var="Curso" itemValue="#{Curso.nombreCurso}" itemLabel="#{Curso.nombreCurso}" />
                                         </p:selectOneMenu>
                                     </f:facet>

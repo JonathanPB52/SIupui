@@ -80,5 +80,37 @@
             <base-name>Idiomas.TablaNovedad</base-name>
             <var>msjTNovedad</var>
         </resource-bundle>
+        <resource-bundle>
+            <base-name>Idiomas.TablaNiño</base-name>
+            <var>msjTNiño</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>Idiomas.TablaAcudiente</base-name>
+            <var>msjTAcudiente</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>Idiomas.TablaDonante</base-name>
+            <var>msjTDonante</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>Idiomas.TablaDonacion</base-name>
+            <var>msjTDonacion</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>Idiomas.TablaCurso</base-name>
+            <var>msjTCurso</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>Idiomas.TablaComedor</base-name>
+            <var>msjTComedor</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>Idiomas.TablaBeneficiado</base-name>
+            <var>msjTBeneficiado</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>Idiomas.TablaActividad</base-name>
+            <var>msjTActividad</var>
+        </resource-bundle>
     </application>
 </faces-config>

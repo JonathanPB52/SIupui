@@ -40,10 +40,9 @@
                                         </h:commandLink>
                                     </p:outputPanel>
                                 </f:facet>
-
                                 <p:column style="border: 0px" class="hoverable">
                                     <f:facet class="linea" name="header">
-                                        <h:outputText value="Nombres"/>
+                                        <h:outputText value="#{msjTAcudiente.nombres}"/>
                                     </f:facet>
                                     <h:outputText  value="#{item.nombreAcudiente}"/>
                                     <br/>
@@ -52,7 +51,7 @@
 
                                 <p:column style="border: 0px" class="hoverable">
                                     <f:facet name="header">
-                                        <h:outputText value="Apellidos"/>
+                                        <h:outputText value="#{msjTAcudiente.Apellidos}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.apellidoAcudiente}"/>
                                     <br/>
@@ -60,20 +59,15 @@
                                 </p:column>
                                 <p:column style="border: 0px" class="hoverable">
                                     <f:facet name="header">
-                                        <h:outputText value="#{msjListarYeditarAcudiente.TipoTelefono}"/>
+                                        <h:outputText value="#{msjTAcudiente.telefono}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.tipoTelefono.tipoDeTelefono}"/>
-                                </p:column>
-                                <p:column style="border: 0px" class="hoverable">
-                                    <f:facet name="header">
-                                        <h:outputText value="#{msjListarYeditarAcudiente.Telefono}"/>
-                                    </f:facet>
+                                    <br/>
                                     <h:outputText value="#{item.telAcudiente}"/>
                                 </p:column>
-
-                                <p:column style="border: 0px" class="hoverable">
+                                <p:column style="border: 0px" class="hoverable" filterBy="#{item.documento}" filterMatchMode="contains">
                                     <f:facet name="header">
-                                        <h:outputText value="#{msjListarYeditarAcudiente.TipoDocumento}"/>
+                                        <h:outputText value="#{msjTAcudiente.documento}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.tipoDocumento.nombre}"/>
                                     <br/>
@@ -81,7 +75,7 @@
                                 </p:column>
                                 <p:column filterBy="#{item.correoAcudiente}" style="border: 0px" class="hoverable">
                                     <f:facet name="header">
-                                        <h:outputText value="#{msjListarYeditarAcudiente.Correo}"/>
+                                        <h:outputText value="#{msjTAcudiente.correo}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.correoAcudiente}"/>
                                 </p:column>
