@@ -58,7 +58,7 @@
                                     <br/>
                                     <h:outputText value="#{item.segundoApellido}"/>
                                 </p:column>
-                                <p:column width="auto" style="border: 0px" class="hoverable">
+                                <p:column width="auto" style="border: 0px" class="hoverable" filterBy="#{item.documento}" filterMatchMode="contains">
                                     <f:facet name="header">
                                         <h:outputText value="#{msjListarYeditarNiño.Documento}"/>
                                     </f:facet>
@@ -71,20 +71,20 @@
                                     <h:outputText value="#{item.acudienteNino.nombreAcudiente}"/><br/>
                                     <h:outputText value="#{item.acudienteNino.documento}"/><br/>
                                 </p:column>
-                                <p:column width="auto" style="border: 0px" class="hoverable">
-                                    <f:facet name="header">
-                                        <h:outputText value="#{msjListarYeditarNiño.Afiliacion}"/>
+                                <p:column style="border: none;" class="hoverable" filterBy="#{item.afiliacionMedicaNino.nombre}" headerText="Afiliacion medica" filterMatchMode="contains">
+                                    <f:facet name="filter">
+                                        <p:selectOneMenu style="width: 80%" onchange="PF('niño').filter()" styleClass="select">
+                                            <f:selectItem itemValue="" itemLabel="Todos las afiliaciones" />
+                                            <f:selectItems value="#{AfiliacionMedicaControlador.ConsultarTodos()}" var="Afiliacion" itemValue="#{Afiliacion.nombre}" itemLabel="#{Afiliacion.nombre}" />
+                                        </p:selectOneMenu>
                                     </f:facet>
-                                    <h:outputText value="#{item.afiliacionMedicaNino.nombre}"/>
+                                    <h:outputText value="#{item.afiliacionMedicaNino.nombre}" />
                                 </p:column>
-                                
                                 <p:column style="border: none;" class="hoverable" filterBy="#{item.idCurso.nombreCurso}" headerText="Curso" filterMatchMode="contains">
                                     <f:facet name="filter">
                                         <p:selectOneMenu style="width: 80%" onchange="PF('niño').filter()" styleClass="select" value="#{reporteNiñoControlador.nombreCurso}">
-                                            <f:selectItem itemValue="años" itemLabel="Todos los cursos" />
-                                            <f:selectItem itemValue="1 a 2 años" itemLabel="1 a 2 años" />
-                                            <f:selectItem itemValue="3 a 4 años" itemLabel="3 a 4 años" />
-                                            <f:selectItem itemValue="5 años" itemLabel="5 años" />
+                                            <f:selectItem itemValue="" itemLabel="Todos los cursos" />
+                                            <f:selectItems value="#{CursoControlador.ConsultarTodos()}" var="curso" itemValue="#{curso.nombreCurso}" itemLabel="#{curso.nombreCurso}" />
                                         </p:selectOneMenu>
                                     </f:facet>
                                     <h:outputText value="#{item.idCurso.nombreCurso}" />

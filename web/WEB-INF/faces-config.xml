@@ -72,5 +72,13 @@
             <base-name>Idiomas.TablaUsuarios</base-name>
             <var>msjTUsuario</var>
         </resource-bundle>
+        <resource-bundle>
+            <base-name>Idiomas.TablaReciclaje</base-name>
+            <var>msjTReciclaje</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>Idiomas.TablaNovedad</base-name>
+            <var>msjTNovedad</var>
+        </resource-bundle>
     </application>
 </faces-config>

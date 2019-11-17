@@ -26,23 +26,23 @@
                                          paginator="true" rows="4" 
                                          paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                          rowsPerPageTemplate="4,8,12" 
-                                         currentPageReportTemplate="Pagina: {currentPage} de {totalPages}"
+                                         currentPageReportTemplate="#{msjTReciclaje.pagina}: {currentPage} #{msjTReciclaje.de} {totalPages}"
                                          emptyMessage="Registro no encontrado">
                                 <f:facet name="header">
                                     <p:outputPanel>
-                                        <h1>Ventas registradas</h1>
+                                        <h1>#{msjTReciclaje.Tirulo}</h1>
                                     </p:outputPanel>
                                 </f:facet>
                                 <f:facet name="header" >
                                     <p:outputPanel style="width: 100%; height: 80px; background: rgba(0,0,0,0.1)" >
-                                        <h:commandLink action="#{reporteVentaControlador.descargarVentas()}" title="Reporte PDF">
+                                        <h:commandLink action="#{reporteVentaControlador.descargarVentas()}" title="#{msjTReciclaje.reporte}">
                                             <h:graphicImage style="width: auto; height: 60px; float: left; margin-top: 10px;" url="../../Estilos/img/iconosExport/pdf.png"/>
                                         </h:commandLink>
                                     </p:outputPanel>
                                 </f:facet>
                                 <p:column style="border: 0px" class="hoverable" filterBy="#{item.fechaDeVenta.date}" filterMatchMode="contains">
                                     <f:facet name="header">
-                                        <h:outputText value="FechaDeVenta"/>
+                                        <h:outputText value="#{msjTReciclaje.Fecha}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.fechaDeVenta}">
                                         <f:convertDateTime pattern="dd/MM/yyyy" />
@@ -50,31 +50,31 @@
                                 </p:column>
                                 <p:column style="border: 0px" class="hoverable">
                                     <f:facet name="header">
-                                        <h:outputText value="Cantidad"/>
+                                        <h:outputText value="#{msjTReciclaje.cantidad}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.cantidad}"/>
                                 </p:column>
                                 <p:column style="border: 0px" class="hoverable">
                                     <f:facet name="header">
-                                        <h:outputText value="Valor"/>
+                                        <h:outputText value="#{msjTReciclaje.valor}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.valor}"/>
                                 </p:column>
-                                <p:column styleClass="select" style="border: none; width: 15%" class="hoverable" filterBy="#{item.tipoDeMaterial.tipoMaterial}" headerText="Tipo de material" filterMatchMode="contains">
+                                <p:column styleClass="select" style="border: none; width: 15%" class="hoverable" filterBy="#{item.tipoDeMaterial.tipoMaterial}" headerText="#{msjTReciclaje.tipoMaterial}" filterMatchMode="contains">
                                     <f:facet name="filter">
                                         <p:selectOneMenu style="width: 90%" onchange="PF('Reciclaje').filter()" styleClass="select" value="#{reporteVentaControlador.tipoDeMaterial}">
-                                            <f:selectItem itemValue="" itemLabel="Todos los materiales" />
-                                            <f:selectItem itemValue="Papel" itemLabel="Papel" />
-                                            <f:selectItem itemValue="Vidrio" itemLabel="Vidrio" />
-                                            <f:selectItem itemValue="Carton" itemLabel="Carton" />
-                                            <f:selectItem itemValue="Plasticos" itemLabel="Plasticos" />
+                                            <f:selectItem itemValue="" itemLabel="#{msjTReciclaje.todosM}" />
+                                            <f:selectItem itemValue="Papel" itemLabel="#{msjTReciclaje.papel}" />
+                                            <f:selectItem itemValue="Vidrio" itemLabel="#{msjTReciclaje.vidrio}" />
+                                            <f:selectItem itemValue="Carton" itemLabel="#{msjTReciclaje.carton}" />
+                                            <f:selectItem itemValue="Plasticos" itemLabel="#{msjTReciclaje.plastico}" />
                                         </p:selectOneMenu>
                                     </f:facet>
                                     <h:outputText value="#{item.tipoDeMaterial.tipoMaterial}" />
                                 </p:column>
                                 <p:column style="border: 0px" class="hoverable">
                                     <f:facet name="header">
-                                        <h:outputText value="Encargado"/>
+                                        <h:outputText value="#{msjTReciclaje.encargado}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.encargado.nombre} #{item.encargado.documento}"/>
                                 </p:column>

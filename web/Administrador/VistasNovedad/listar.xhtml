@@ -8,6 +8,7 @@
         <title>Facelet Title</title>
         <link rel="stylesheet" href="../../icomoon/style.css"></link>
         <link rel="stylesheet" href="../../Estilos/css/scroll.css"></link>
+        <link rel="stylesheet" href="../../Estilos/css/select.css"></link>
         <link rel="stylesheet" href="../../Estilos/AnimacionesCss/animate.css"></link>
         <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.css"></link>
         <link rel="stylesheet" href="../../Estilos/materialize/css/materialize.min.css"></link>
@@ -21,44 +22,48 @@
                             <p:dataTable class="table" value="#{NovedadControlador.ConsultarTodos()}" 
                                          var="item"
                                          id="tablaNovedad"
+                                         widgetVar="novedad"
                                          paginator="true" rows="4" 
                                          paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                          rowsPerPageTemplate="4,8,12" 
-                                         currentPageReportTemplate="Pagina: {currentPage} de {totalPages}"
+                                         currentPageReportTemplate="#{msjTNovedad.pagina}: {currentPage} #{msjTNovedad.de} {totalPages}"
                                          emptyMessage="Registro no encontrado">
 
                                 <f:facet name="header">
                                     <p:outputPanel>
-                                        <h1>Novedades registradas</h1>
+                                        <h1>#{msjTNovedad.Titulo}</h1>
                                     </p:outputPanel>
                                 </f:facet>
                                 <f:facet name="header" >
                                     <p:outputPanel style="width: 100%; height: 80px; background: rgba(0,0,0,0.1)" >
-                                        <h:commandLink title="Reporte PDF">
+                                        <h:commandLink title="#{msjTNovedad.reporte}">
                                             <h:graphicImage style="width: auto; height: 60px; float: left; margin-top: 10px;" url="../../Estilos/img/iconosExport/pdf.png"/>
                                             <p:dataExporter type="pdf" target="cursotable" fileName="Novedad"/>
                                         </h:commandLink>
                                     </p:outputPanel>
                                 </f:facet>
-                                <p:column width="auto" style="border: 0px" class="hoverable">
+                                <p:column width="auto" style="border: 0px" class="hoverable" filterBy="#{item.fechaDeNovedad.date}" filterMatchMode="contains">
                                     <f:facet name="header">
-                                        <h:outputText value="Fecha de novedad"/>
+                                        <h:outputText value="#{msjTNovedad.fecha}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.fechaDeNovedad}">
-                                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                                        <f:convertDateTime pattern="dd/MM/yyyy" />
                                     </h:outputText>
                                 </p:column>
                                 <p:column width="auto" style="border: 0px" class="hoverable">
                                     <f:facet  name="header">
-                                        <h:outputText value="Descripcion"/>
+                                        <h:outputText value="#{msjTNovedad.descripcion}"/>
                                     </f:facet>
                                     <h:outputText value="#{item.descripcion}"/>
                                 </p:column>
-                                <p:column width="auto" style="border: 0px" class="hoverable">
-                                    <f:facet name="header">
-                                        <h:outputText value="Comedor"/>
+                                <p:column styleClass="select" style="border: none; width: 15%" class="hoverable" filterBy="#{item.idcomedor}" headerText="#{msjTNovedad.comedor}" filterMatchMode="contains">
+                                    <f:facet name="filter">
+                                        <p:selectOneMenu style="width: 90%" onchange="PF('novedad').filter()" styleClass="select">
+                                            <f:selectItem itemValue="" itemLabel="#{msjTNovedad.consultarTodos}" />
+                                            <f:selectItems value="#{ComedorControlador.ConsultarTodos()}" var="comedor" itemValue="#{comedor.id}" itemLabel="#{comedor.localidad.nombreLocalidad}" />
+                                        </p:selectOneMenu>
                                     </f:facet>
-                                    <h:outputText value="#{item.idcomedor.localidad.nombreLocalidad}"/>
+                                    <h:outputText value="#{item.idcomedor.localidad.nombreLocalidad}" />
                                 </p:column>
                                 <p:column width="20%" style="border: 0px; text-align: center" class="hoverable" headerText="#{msjAlertasTablas.Opciones}">
                                     <p:commandButton update="tablaNovedad" title="#{msjAlertasTablas.Consultar}" class="icon-search btn" action="#{NovedadControlador.ConsultarL(item)}" value="" >
